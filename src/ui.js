@@ -260,6 +260,7 @@ GridUi.prototype.setEditEntity = function(data) {
     this.grid.setSymmetry(data.symmetry);
   }
   var entityMap = {
+    'is_empty': Type.NONE,
     'basic': Type.BASIC,
     'start': Type.START,
     'end': Type.END,

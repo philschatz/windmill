@@ -9,13 +9,13 @@
         <md-input-container style="width: 100px;">
           <label>Grid width</label>
           <md-select ng-model="w">
-            <md-option ng-repeat="_ in range(10) track by $index" value="{{$index+1}}">{{$index+1}}</md-option>
+            <md-option ng-repeat="_ in range(10) track by $index" value="{{$index}}">{{$index}}</md-option>
           </md-select>
         </md-input-container>
         <md-input-container style="width: 100px;">
           <label>Grid height</label>
           <md-select ng-model="h">
-            <md-option ng-repeat="_ in range(10) track by $index" value="{{$index+1}}">{{$index+1}}</md-option>
+            <md-option ng-repeat="_ in range(10) track by $index" value="{{$index}}">{{$index}}</md-option>
           </md-select>
         </md-input-container>
       </div>

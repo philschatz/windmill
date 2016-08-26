@@ -344,7 +344,8 @@ var EditorCtrl = function(
     'start',
     'end',
     'hexagon',
-    'disjoint'
+    'disjoint',
+    'is_empty'
   ];
   // Should match grid.proto.
   // In theory could derive a reverse mapping here.
@@ -1062,6 +1063,9 @@ GridService.prototype.newGridUi_ = function(data) {
   }
   var uiHook = new windmill.GridUiHook();
   uiHook.showToast = goog.bind(this.mdToast.showSimple, this.mdToast);
+  uiHook.onSuccess = function() {
+    alert(grid.getHash());
+  }
   var gui = new windmill.GridUi(grid, uiHook);
   return gui;
 }
@@ -1291,4 +1295,3 @@ windmill.module = angular.module('SimApp', ['ngMaterial', 'ui.router'])
 angular.element(document).ready(function() {
   angular.bootstrap(document.body, ['SimApp']);
 });
-

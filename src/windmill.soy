@@ -138,6 +138,8 @@
       y2="{$y+$dy}"
       stroke-width="{UI.GRID_LINE}"
       stroke-linecap="round" />
+
+<circle class="puzzle-end-pulsator" cx="{$x+$dx}" cy="{$y+$dy}" r="{UI.GRID_LINE/2}" style="transform-origin: {$x+$dx}px {$y+$dy}px;" />
 {/template}
 
 /** Error SVG */
@@ -455,6 +457,7 @@
   {@param x: number}
   {@param y: number}
 <circle cx="{$x}" cy="{$y}" r="{UI.START_R}" />
+<circle class="puzzle-start-pulsator " cx="{$x}" cy="{$y}" r="{UI.START_R}" style="transform-origin: {$x}px {$y}px;" />
 {/template}
 
 /** Snake wrapper SVG */
@@ -745,4 +748,3 @@
   {/param}
 {/call}
 {/template}
-

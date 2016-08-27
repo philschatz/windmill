@@ -374,6 +374,9 @@ GridUi.prototype.initializeSnake = function(
   if (this.snake) {
     return false;
   }
+  // Turn off pulsating start
+  document.getElementById('grid').setAttribute('data-game-state', 'playing');
+
   var gridElem = document.getElementById('gridPath');
   var reqLock = gridElem.requestPointerLock ||
       gridElem.mozRequestPointerLock ||
@@ -547,6 +550,10 @@ GridUi.prototype.finishSnake = function() {
   } catch (e) {
     console.log(e);
   }
+
+  // start pulsating the start points again
+  document.getElementById('grid').setAttribute('data-game-state', 'waiting');
+
   // In all cases, on finish, release the pointer lock if any.
   if (this.lockStatus == 'yes') {
     this.lockStatus = 'no';

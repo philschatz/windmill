@@ -4,13 +4,13 @@
 {template .gridSvg}
   {@param contents: list<?>}
 // First, base grid.
-<g stroke="black" fill="black">
+<g class="grid-base">
   {foreach $entity in $contents}
     {call .entityGridSvg data="$entity" /}
   {/foreach}
 </g>
 // Now, extras.
-<g stroke="black" fill="black">
+<g class="grid-extras">
   {foreach $entity in $contents}
     {call .entityExtraSvg data="$entity" /}
   {/foreach}
@@ -469,7 +469,7 @@
 /** Snake SVG */
 {template .snakeSvg}
   {@param contents: list<?>}
-<g stroke="white" fill="white">
+<g class="snake">
   {foreach $segment in $contents}
     {call .snakeSegmentSvg data="$segment"}
       {param isLastSegment: isLast($segment) /}

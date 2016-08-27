@@ -1,0 +1,273 @@
+@keyframes startPulsate {
+  0% {
+      transform: scale(0.1, 0.1);
+      opacity: 0.0;
+  }
+  40% {
+      transform: scale(0.1, 0.1);
+      opacity: 0.0;
+  }
+  50% { opacity: 1.0; }
+  60% {
+      transform: scale(1.5, 1.5);
+      opacity: 0.0;
+  }
+  100% {
+    transform: scale(0.1, 0.1);
+    opacity: 0;
+  }
+}
+#grid:not([data-game-state]) .puzzle-start-pulsator,
+#grid[data-game-state='waiting'] .puzzle-start-pulsator,
+#grid[data-game-state='playing'] .puzzle-end-pulsator {
+  stroke: #fff;
+  stroke-width: 3px;
+  fill: none;
+  animation: startPulsate 4s ease-in infinite;
+}
+
+#gridAll { }
+
+/* Themeing */
+/* #C5C5AC; 7C819D; #EDC9AF; #708090 all nice for BG */
+md-content { box-shadow: inset 5px 5px 28px rgba(0,0,0,.5); }
+md-content { background-color: #FDE9AF; }
+.grid-base,
+.grid-extras { stroke:black; fill:black; filter: url('#glow'); }
+.snake { stroke:white; fill:white; filter: url('#glow'); }
+
+
+.overlay {
+  position: absolute;
+  cursor: pointer;
+  background-color: yellow;
+  opacity: 0;
+}
+.overlay.isRemoval {
+  background-color: red;
+}
+.overlay.canHighlight:hover {
+  opacity: 0.2;
+}
+.overlay.isSelected:hover {
+  opacity: 0.4;
+}
+.error {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.5;
+  background-color: red;
+}
+.md-button.md-icon-button.element {
+  width: 48px;
+  height: 48px;
+  line-height: inherit;
+  /*@include md-shadow-bottom-z-1();*/
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  margin: 6px;
+}
+/** Specificify hacks */
+.md-icon-button.element[disabled] {
+  background-color: gray;
+  opacity: 0.4;
+}
+.md-icon-button.element.isSelected {
+  background-color: rgb(255,64,129);
+}
+.md-icon-button.element.isSelected:hover {
+  background-color: rgb(255,64,129);
+}
+.md-icon-button.element md-icon {
+  width: 32px;
+  height: 32px;
+}
+.colorButton {
+  min-width: 48px;
+  margin: 0;
+  vertical-align: top;
+}
+.colorButton.isSelected {
+  border: 2px solid black;
+}
+.gridSquare {
+  margin: 4px;
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  border: 3px solid black;
+  position: relative; /* for overlays */
+  overflow: hidden; /* for menu animations */
+}
+.gridMenu {
+  display: block;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+  background-color: rgba(25, 25, 50, 0.5);
+  transition: transform 100ms ease-in;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.gridMenu.isTop {
+  top: 0;
+  height: 30%;
+  pointer-events: none;
+  transform: translate(0, -100%);
+  font-size: 24px;
+}
+.gridMenu.isBottom {
+  top: 70%;
+  height: 30%;
+  transform: translate(0, 100%);
+  cursor: default;
+  font-size: 14px;
+}
+/**
+ * Visible scrollbar on macs. It's not very pretty, but UI bad otherwise.
+ * Based on https://davidwalsh.name/osx-overflow
+ */
+md-content::-webkit-scrollbar {
+   -webkit-appearance: none;
+   width: 12px;
+}
+md-content::-webkit-scrollbar-thumb {
+   background-color: rgba(0,0,0,.5);
+   -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+.gridMenu a, .gridMenu md-icon {
+  cursor: pointer;
+}
+ul.flatList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.flatList > li {
+  display: inline-block;
+  margin-left: 8px;
+}
+ul.flatList > li+li {
+  margin-right: 8px;
+}
+.gridMenu.isBottom > .bottomText {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.gridSquare:hover .gridMenu {
+  transform: none;
+}
+.gridDone {
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  abackground-color: rgba(0, 0, 0, 0.15);
+  /*border: 3px solid rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 5px 2px goldenrod;*/
+  z-index: 2;
+  pointer-events: none;
+}
+.gridDoneText {
+  font-size: 100px;
+  line-height: 200px;
+  text-align: center;
+  transition-property: color, text-shadow, transform;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in;
+  /* for corner: translate(-75px, 0) scale(0.5) */
+  transform: scale(2.0);
+  color: transparent;
+  text-shadow: 0 5px 0 rgba(0, 50, 0, 0.2);
+}
+.gridSquare:hover .gridDoneText {
+  color: rgba(0,255,0,0.5);
+  text-shadow: 0 0 5px rgba(0,0,0,0.8);
+  transform: none;
+}
+.gridSquare.isPrivate {
+  border: 3px solid #F66;
+}
+.fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+.gridView {
+  font-size: 160px;
+  line-height: 200px;
+  width: 160px;
+  height: 160px;
+}
+.gridSquare.renderCloak .gridView {
+  display: none;
+}
+.gridSquare.renderCloak.renderFail .gridView {
+  display: block;
+}
+.gridSquare.renderCloak.renderFail svg {
+  display: none;
+}
+.tcell {
+  min-width: 32px;
+  min-height: 32px;
+  margin: 3px 3px;
+  background-color: gray;
+  vertical-align: top;
+}
+.tcell.yellow {
+  background-color: yellow;
+}
+.tcell.blue {
+  outline: 6px solid blue;
+}
+.foregroundText {
+  color: #FFF;
+}
+.foregroundText a {
+  color: #FFF;
+}
+.foregroundText a:visited {
+  color: #DDF;
+}
+/* https://stackoverflow.com/questions/4910963/how-to-create-a-pulse-effect-using-webkit-animation-outward-rings */
+.touchContainer {
+  height: 64px;
+  width: 64px;
+  line-height: 64px;
+  font-size: 48px;
+  position: absolute;
+  z-index: 20;
+}
+.touchIndicator {
+  border: 5px solid #FFF;
+  border-radius: 64px;
+  /* https://mobiforge.com/design-development/designing-touch-thumb-and-finger-sized-design */
+  height: 64px;
+  width: 64px;
+  position: absolute;
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 1.0
+}
+.touchIndicator.isSecond {
+  animation-delay: 0.5s;
+  opacity: 0.0;
+}
+@keyframes pulsate {
+    0% {transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {transform: scale(1.0, 1.0); opacity: 0.0;}
+}

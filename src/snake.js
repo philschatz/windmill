@@ -70,6 +70,7 @@ Snake.prototype.atEnd = function() {
 }
 Snake.prototype.markSuccessful = function() {
   if (this.snakeEl) {
+    // this.snakeEl.classList.add('is-completed') // TODO: add a class to the snake when it/they is/are finished
     this.snakeEl.style.setProperty(
         'filter',
         'url(' + window.location.href.split('#')[0] + '#glow)');

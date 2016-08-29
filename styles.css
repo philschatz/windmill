@@ -18,24 +18,91 @@
   }
 }
 #grid:not([data-game-state]) .puzzle-start-pulsator,
-#grid[data-game-state='waiting'] .puzzle-start-pulsator,
-#grid[data-game-state='playing'] .puzzle-end-pulsator {
+#grid[data-game-state='waiting'] .puzzle-start-pulsator {
   stroke: #fff;
   stroke-width: 3px;
   fill: none;
   animation: startPulsate 4s ease-in infinite;
 }
+#grid[data-game-state='playing'] .puzzle-end-pulsator {
+  stroke: #fff;
+  stroke-width: 3px;
+  fill: none;
+  animation: startPulsate 1.5s ease-in infinite;
+}
+
 
 #gridAll { }
 
 /* Themeing */
 /* #C5C5AC; 7C819D; #EDC9AF; #708090 all nice for BG */
 md-content { box-shadow: inset 5px 5px 28px rgba(0,0,0,.5); }
-md-content { background-color: #FDE9AF; }
 .grid-base,
-.grid-extras { stroke:black; fill:black; filter: url('#glow'); }
-.snake { stroke:white; fill:white; filter: url('#glow'); }
+.grid-extras { filter: url('#glow'); }
+.snake { filter: url('#glow'); }
 
+/* default for hexagons is gray unless using the gray theme */
+polygon.hexagon { stroke:gray; fill:gray; }
+polygon.triangle { fill:orange; stroke:none; }
+.tetris-square rect { fill:yellow; stroke:none; }
+.tetris-hole-square rect { fill:none; stroke:blue; stroke-width:4; }
+
+body:not([data-theme]) md-content { background-color: #B7B7B5; }
+body:not([data-theme]) .grid-base,
+body:not([data-theme]) .grid-extras { stroke:black; fill:black; }
+body:not([data-theme]) .snake { stroke:white; fill:white; }
+body:not([data-theme]) polygon.hexagon { stroke:gray; fill:gray; }
+body:not([data-theme]) .tetris-square rect { stroke:yellow; fill:yellow; }
+
+body[data-theme='default'] md-content { background-color: #B7B7B5; }
+body[data-theme='default'] .grid-base,
+body[data-theme='default'] .grid-extras { stroke:#5D5D5B; fill:#5D5D5B; }
+body[data-theme='default'] .snake { stroke:#BEFCEE; fill:#BEFCEE; }
+body[data-theme='default'] polygon.hexagon { stroke:#1F211F; fill:#1F211F; }
+body[data-theme='default'] .tetris-square rect { stroke:#F4CC3E; fill:#F4CC3E; }
+
+body[data-theme='blue'] md-content { background-color: #3C4AF1; }
+body[data-theme='blue'] .grid-base,
+body[data-theme='blue'] .grid-extras { stroke:#161D9D; fill:#161D9D; }
+body[data-theme='blue'] .snake { stroke:#AFD2FB; fill:#AFD2FB; }
+
+
+body[data-theme='orange'] md-content { background-color: #EFB530; }
+body[data-theme='orange'] .grid-base,
+body[data-theme='orange'] .grid-extras { stroke:#3D310D; fill:#3D310D; }
+body[data-theme='orange'] .snake { stroke:#FFFDB9; fill:#FFFDB9; }
+
+body[data-theme='light-green'] md-content { background-color: #64E84E; }
+body[data-theme='light-green'] .grid-base,
+body[data-theme='light-green'] .grid-extras { stroke:#255821; fill:#255821; }
+body[data-theme='light-green'] .snake { stroke:#FCFACB; fill:#FCFACB; }
+body[data-theme='light-green'] polygon.hexagon { stroke:#0D1F15; fill:#0D1F15; }
+
+/* These are for the symmetry tutorials */
+body[data-theme='blue-green'] md-content { background-color: #8F8559; }
+body[data-theme='blue-green'] .grid-base,
+body[data-theme='blue-green'] .grid-extras { stroke:#3E5691; fill:#3E5691; }
+body[data-theme='blue-green'] .snake { stroke:#D0D0CD; fill:#D0D0CD; }
+
+body[data-theme='brown'] md-content { background-color: #596917; }
+body[data-theme='brown'] .grid-base,
+body[data-theme='brown'] .grid-extras { stroke:#255821; fill:#255821; }
+body[data-theme='brown'] .snake { stroke:#BDCD85; fill:#BDCD85; }
+body[data-theme='brown'] .tetris-square { stroke:#B79C28; fill:#B79C28; }
+
+body[data-theme='dark-red'] md-content { background-color: #3A0E0A; }
+body[data-theme='dark-red'] .grid-base,
+body[data-theme='dark-red'] .grid-extras { stroke:#58211A; fill:#58211A; }
+body[data-theme='dark-red'] .snake { stroke:#A5A68D; fill:#A5A68D; }
+
+
+body[data-theme='gray'] md-content { background-color: #; }
+body[data-theme='gray'] .grid-base,
+body[data-theme='gray'] .grid-extras { stroke:#; fill:#; }
+body[data-theme='gray'] .snake { stroke:#; fill:#; }
+
+
+.has-bend { stroke-linecap: round; }
 
 .overlay {
   position: absolute;

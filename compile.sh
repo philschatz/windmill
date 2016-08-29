@@ -17,6 +17,7 @@ OUR_JS_FILES_LIST="
     src/keys.js
     src/shape.js
     src/snake.js
+    src/sound.js
     src/solve.js
     src/validate.js
     src/ui.js
@@ -122,4 +123,3 @@ date '+%S:%M:%H Done'
 if [[ -d ../server/api/public/static/ ]]; then
   cp build.html static/*js static/*html static/*.svg static/*.ico ../server/api/public/static/
 fi
-

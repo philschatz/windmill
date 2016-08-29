@@ -6,6 +6,7 @@ goog.require('windmill.Grid');
 goog.require('windmill.GridProto');
 goog.require('windmill.Shape');
 goog.require('windmill.Snake');
+goog.require('windmill.Sound');
 goog.require('windmill.constants.UI');
 goog.require('windmill.keys');
 goog.require('windmill.templates');
@@ -56,6 +57,46 @@ GridRenderer.prototype.renderContents = function(contents) {
     svgEl.setAttribute('width', this.getRenderWidth());
     svgEl.setAttribute('height', this.getRenderHeight());
   }
+
+  // TODO: Compute whether each segment turns left or right. If so, make it have rounded corners
+  // Compute whether each segment is touching another segment on both sides.
+  // If so, it will be given rounded corners
+  var TABLE = {};
+  function addToTable(segment) {
+    // skip if it's not a line
+    if (segment.type === Type.NONE || !(segment.drawType === DrawType.HLINE || segment.drawType === DrawType.VLINE)) { return; }
+    if (!TABLE[segment.i]) { TABLE[segment.i] = {}; }
+    if (!TABLE[segment.i][segment.j]) { TABLE[segment.i][segment.j] = {}; }
+    if (segment.drawType == DrawType.HLINE) {
+      TABLE[segment.i][segment.j].hline = segment;
+    } else {
+      TABLE[segment.i][segment.j].vline = segment;
+    }
+  }
+  function checkTable(direction, i,j) {
+    if (!TABLE[i]) { return false; }
+    if (!TABLE[i][j]) { return false; }
+    return !!TABLE[i][j][direction];
+  }
+  function checkH(i, j) { return checkTable('hline', i, j); }
+  function checkV(i, j) { return checkTable('vline', i, j); }
+  goog.array.forEach(contents, addToTable);
+  goog.array.forEach(contents, function(segment) {
+    // skip if it's not a line
+    if (segment.type === Type.NONE || !(segment.drawType === DrawType.HLINE || segment.drawType === DrawType.VLINE)) { return; }
+    var i = segment.i;
+    var j = segment.j;
+    // look around and see if there are other segments on both ends
+    if (segment.drawType === DrawType.VLINE) {
+      var hasAbove = checkH(i-1, j)   || checkH(i, j)   || checkV(i, j-1); // left, right
+      var hasBelow = checkH(i-1, j+1) || checkH(i, j+1) || checkV(i, j+1); // left, right
+    } else {
+      var hasAbove = checkV(i, j-1) || checkV(i, j); // up, down. Actually, this is hasLeft
+      var hasBelow = checkV(i+1, j-1) || checkV(i+1, j); // up, down. Actually, this is hasRight
+    }
+    segment.hasBend = hasAbove && hasBelow;
+  });
+
   // Now, the rendering.
   var gridSvg = windmill.templates.gridSvg({
     contents: contents
@@ -376,6 +417,7 @@ GridUi.prototype.initializeSnake = function(
   }
   // Turn off pulsating start
   document.getElementById('grid').setAttribute('data-game-state', 'playing');
+  windmill.Sound.playEndRipples();
 
   var gridElem = document.getElementById('gridPath');
   var reqLock = gridElem.requestPointerLock ||
@@ -553,6 +595,7 @@ GridUi.prototype.finishSnake = function() {
 
   // start pulsating the start points again
   document.getElementById('grid').setAttribute('data-game-state', 'waiting');
+  windmill.Sound.playStartRipples();
 
   // In all cases, on finish, release the pointer lock if any.
   if (this.lockStatus == 'yes') {

@@ -50,10 +50,11 @@
 {template .entityExtraSvg}
   {@param i: int}
   {@param j: int}
+  {@param? hasBend: bool}
   {@param drawType: int}
   {@param type: int}
   {@param extras: ?}
-{let $coord: ['x': UI.GRID_UNIT*$i, 'y': UI.GRID_UNIT*$j, 'i': $i, 'j': $j] /}
+{let $coord: ['x': UI.GRID_UNIT*$i, 'y': UI.GRID_UNIT*$j, 'i': $i, 'j': $j, 'hasBend': $hasBend] /}
 {switch $drawType}
   {case DrawType.CELL}
     {switch $type}
@@ -109,9 +110,10 @@
 {template .entityGridSvg}
   {@param i: int}
   {@param j: int}
+  {@param? hasBend: bool}
   {@param drawType: int}
   {@param type: int}
-{let $coord: ['x': UI.GRID_UNIT*$i, 'y': UI.GRID_UNIT*$j] /}
+{let $coord: ['x': UI.GRID_UNIT*$i, 'y': UI.GRID_UNIT*$j, 'hasBend': $hasBend] /}
 {switch $drawType}
   {case DrawType.HLINE, DrawType.VLINE}
     // Also have to do disjoint here.
@@ -166,7 +168,7 @@
 {call .cellSvg data="all"}
   {param content kind="html"}
     {for $i in range($count)}
-      <polygon fill="orange" stroke="none"
+      <polygon class="triangle"
               points="{0},{-$h} {$r},{$h} {-$r},{$h}"
               transform="translate({$i*$addl-$xTransform/2},0)" />
     {/for}
@@ -202,7 +204,7 @@
 {let $fullWidth: $r*2 /}
 {let $fullHeight: $h*2 /}
 // Starting from left and going counterclockwise.
-<polygon fill="gray" stroke="gray"
+<polygon class="hexagon"
          points="{-$r},0 {-$s},{-$h} {$s},{-$h} {$r},0 {$s},{$h} {-$s},{$h}"
          transform="translate(
             {$x+($direction == DrawType.HLINE ? 50 : 0)},
@@ -248,10 +250,9 @@
   // It's complicated enough that we'd prefer to build it at origin, then transform.
   {param attributes kind="attributes"}
     {if $shape.negative}
-      fill="none" stroke="blue"
-      stroke-width="4"
+      class="tetris-hole-square"
     {else}
-      fill="yellow" stroke="none"
+      class="tetris-square"
     {/if}
   {/param}
 {/call}
@@ -363,7 +364,7 @@
         x2="{UI.END_LENGTH}"
         y2="0"
         stroke-width="{UI.GRID_LINE}"
-        stroke-linecap="round" />
+        stroke-linecapPHIL="round" />
   <line x1="0"
         y1="0"
         x2="{UI.END_LENGTH/2}"
@@ -422,6 +423,7 @@
   {@param x: number}
   {@param y: number}
   {@param direction: number}
+  {@param hasBend: bool}
   {@param? start: number}
   {@param? end: number}
   {@param? disjoint: bool}
@@ -436,7 +438,9 @@
       y2="{$y+$vertical*(UI.GRID_UNIT-$partial*$eoff)}"
       stroke-width="{UI.GRID_LINE}"
       {if $disjoint}stroke-dasharray="{UI.DISJOINT_LENGTH},{UI.GRID_UNIT-UI.DISJOINT_LENGTH*2},{UI.DISJOINT_LENGTH}"{/if}
-      stroke-linecap="round" />
+      stroke-linecapPHIL="round"
+      class="{$hasBend ? 'has-bend' : 'not-has-bend'}" />
+
 // Strokes with multiple endcaps? Impossible!
 {if $disjoint}
 {let $r: UI.GRID_LINE/2 /}
@@ -487,7 +491,7 @@
   {@param? direction: number}
   {@param? start: number}
   {@param? end: number}
-{let $coord: ['x': UI.GRID_UNIT*$i, 'y': UI.GRID_UNIT*$j] /}
+{let $coord: ['x': UI.GRID_UNIT*$i, 'y': UI.GRID_UNIT*$j, 'hasBend': true] /}
 {if $segmentType == SegmentType.START}
   {call .startSvg data="$coord" /}
 {elseif $segmentType == SegmentType.MIDDLE and isNonnull($direction)}
@@ -528,9 +532,10 @@
 {template .entityPlayHtml}
   {@param i: number}
   {@param j: number}
+  {@param? hasBend: bool}
   {@param drawType: number}
   {@param type: number}
-{let $entity: ['x': UI.GRID_UNIT*$i, 'y': UI.GRID_UNIT*$j, 'i': $i, 'j': $j, 'drawType': $drawType] /}
+{let $entity: ['x': UI.GRID_UNIT*$i, 'y': UI.GRID_UNIT*$j, 'i': $i, 'j': $j, 'drawType': $drawType, 'hasBend': $hasBend] /}
 {if $drawType == DrawType.POINT and $type == Type.START}
   {call .startHtml data="$entity" /}
 {/if}

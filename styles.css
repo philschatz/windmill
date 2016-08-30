@@ -17,6 +17,14 @@
     opacity: 0;
   }
 }
+@keyframes flickerErrors {
+  0%  { opacity: 0.5; }
+  40% { opacity: 0.5; }
+  50% { opacity: 0.0; }
+  100% { opacity: 0.5; }
+}
+
+
 #grid:not([data-game-state]) .puzzle-start-pulsator,
 #grid[data-game-state='waiting'] .puzzle-start-pulsator {
   stroke: #fff;
@@ -124,6 +132,7 @@ body[data-theme='gray'] .snake { stroke:#; fill:#; }
   pointer-events: none;
   opacity: 0.5;
   background-color: red;
+  animation: flickerErrors .5s ease-in infinite;
 }
 .md-button.md-icon-button.element {
   width: 48px;

@@ -966,7 +966,7 @@ windmill.Sound.soundEffect = soundEffect;
 
 function startSound(count) {
   windmill.Sound.soundEffect(
-    50,          //frequency
+    150,          //frequency
     undefined,         //attack
     undefined,          //decay
     "triangle",       //waveform

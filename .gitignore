@@ -3,6 +3,7 @@ static/*
 !static/icons.svg
 !static/logo.ico
 !static/protobuf.min.js
+!static/bytebuffer.min.js
 # dist/*
 !dist/README.md
 node_modules/

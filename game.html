@@ -78,34 +78,35 @@ For ease of offline development, can also use our own static files.
 <!-- TODO fix layout not changing -->
 <div flex layout="row" layout-align="{{editOpen() ? 'left start' : 'center start'}}" style="background-color: transparent;">
   <div id="content">
-  <div style="position: relative;" id="gridAll">
-  <div id="gridContainer" width="650" height="650" style="position: relative; top: 0; left: 0;">
-    <svg id="grid" width="650" height="650" xmlns="http://www.w3.org/2000/svg" version="1.1" style="position: relative; top: 0; left: 0;">
-      <defs>
-          <filter id="dropGlow" width="1.5" height="1.5" x="-.25" y="-.25">
-              <feGaussianBlur id="feGaussianBlur5384" in="SourceAlpha" stdDeviation="15.000000" result="blur"/>
-              <feColorMatrix id="feColorMatrix5386" result="bluralpha" type="matrix" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 0.800000 0 "/>
-              <feOffset id="feOffset5388" in="bluralpha" dx="0.000000" dy="0.000000" result="offsetBlur"/>
-              <feMerge id="feMerge5390">
-                  <feMergeNode id="feMergeNode5392" in="offsetBlur"/>
-                  <feMergeNode id="feMergeNode5394" in="SourceGraphic"/>
-              </feMerge>
-          </filter>
-      </defs>
-      <g transform="translate(50,50)">
-        <g id="gridBase" style="transform: translateZ(0)"></g>
-        <g id="gridPath" style="pointer-events: none"></g>
-      </g>
-    </svg>
-  </div>
-  <div id="extras" width="450" height="450" style="position: absolute; top: 50px; left: 50px"></div>
-  <div id="errors" width="450" height="450" style="position: absolute; top: 50px; left: 50px"></div>
-  <div id="pathExtras" width="450" height="450" style="position: absolute; top: 50px; left: 50px"></div>
-  </div>
-  <!-- <p class="foregroundText" style="margin: 0; text-align: center;" class="md-subhead" ng-show="pub">Published as
-  <a href="/{{pub}}" target="_blank" style="color: white;">{{origin}}/{{pub}}</p> -->
-  </div>
-  </div>
+    <div class="flex-padding"></div>
+    <div style="position: relative;" id="gridAll">
+      <div id="gridContainer" width="650" height="650" style="position: relative; top: 0; left: 0;">
+        <svg id="grid" width="650" height="650" xmlns="http://www.w3.org/2000/svg" version="1.1" style="position: relative; top: 0; left: 0;">
+          <defs>
+              <filter id="dropGlow" width="1.5" height="1.5" x="-.25" y="-.25">
+                  <feGaussianBlur id="feGaussianBlur5384" in="SourceAlpha" stdDeviation="15.000000" result="blur"/>
+                  <feColorMatrix id="feColorMatrix5386" result="bluralpha" type="matrix" values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 0.800000 0 "/>
+                  <feOffset id="feOffset5388" in="bluralpha" dx="0.000000" dy="0.000000" result="offsetBlur"/>
+                  <feMerge id="feMerge5390">
+                      <feMergeNode id="feMergeNode5392" in="offsetBlur"/>
+                      <feMergeNode id="feMergeNode5394" in="SourceGraphic"/>
+                  </feMerge>
+              </filter>
+          </defs>
+          <g transform="translate(50,50)">
+            <g id="gridBase" style="transform: translateZ(0)"></g>
+            <g id="gridPath" style="pointer-events: none"></g>
+          </g>
+        </svg>
+      </div>
+      <div id="extras" width="450" height="450" style="position: absolute; top: 50px; left: 50px"></div>
+      <div id="errors" width="450" height="450" style="position: absolute; top: 50px; left: 50px"></div>
+      <div id="pathExtras" width="450" height="450" style="position: absolute; top: 50px; left: 50px"></div>
+    </div>
+    <!-- <p class="foregroundText" style="margin: 0; text-align: center;" class="md-subhead" ng-show="pub">Published as
+    <a href="/{{pub}}" target="_blank" style="color: white;">{{origin}}/{{pub}}</p> -->
+    <div class="flex-padding"></div>
+  </div><!-- #content -->
 </div>
 
 <section ui-view autoscroll="false"></section>

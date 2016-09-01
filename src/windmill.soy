@@ -432,14 +432,29 @@
 {let $soff: $start ? $start : 0 /}
 {let $eoff: $end ? $end : 0 /}
 {let $partial: $start or $end ? 1 : 0 /}
+
+<!-- Partially trying to fix the just-a-line puzzle case by using rectangles instead of lines
+<rect
+  x="{$x+$horizontal*$partial*$soff - UI.GRID_LINE/2}"
+  y="{$y+$vertical*$partial*$soff - UI.GRID_LINE/2}"
+  width="{$horizontal ? $horizontal*(UI.GRID_UNIT-$partial*$eoff) : UI.GRID_LINE}px"
+  height="{$vertical  ? $vertical*(UI.GRID_UNIT-$partial*$eoff) : UI.GRID_LINE}px"
+  partial="{$partial}"
+  soff="{$soff}"
+  eoff="{$eoff}"
+  horizontal="{$horizontal}"
+  vertical="{$vertical}"
+/>
+-->
+
 <line x1="{$x+$horizontal*$partial*$soff}"
       y1="{$y+$vertical*$partial*$soff}"
       x2="{$x+$horizontal*(UI.GRID_UNIT-$partial*$eoff)}"
       y2="{$y+$vertical*(UI.GRID_UNIT-$partial*$eoff)}"
       stroke-width="{UI.GRID_LINE}"
       {if $disjoint}stroke-dasharray="{UI.DISJOINT_LENGTH},{UI.GRID_UNIT-UI.DISJOINT_LENGTH*2},{UI.DISJOINT_LENGTH}"{/if}
-      stroke-linecapPHIL="round"
       class="{$hasBend ? 'has-bend' : 'not-has-bend'}" />
+
 
 // Strokes with multiple endcaps? Impossible!
 {if $disjoint}

@@ -45,9 +45,9 @@
 /* Themeing */
 /* #C5C5AC; 7C819D; #EDC9AF; #708090 all nice for BG */
 md-content { box-shadow: inset 5px 5px 28px rgba(0,0,0,.5); }
-.grid-base,
+/*.grid-base,
 .grid-extras { filter: url('#glow'); }
-.snake { filter: url('#glow'); }
+.snake { filter: url('#glow'); }*/
 
 /* default for hexagons is gray unless using the gray theme */
 polygon.hexagon { stroke:gray; fill:gray; }
@@ -73,6 +73,21 @@ body[data-theme='blue'] md-content { background-color: #3C4AF1; }
 body[data-theme='blue'] .grid-base,
 body[data-theme='blue'] .grid-extras { stroke:#161D9D; fill:#161D9D; }
 body[data-theme='blue'] .snake { stroke:#AFD2FB; fill:#AFD2FB; }
+
+body[data-theme='blue-green'] md-content { background-color: #1F2019; }
+body[data-theme='blue-green'] .grid-base,
+body[data-theme='blue-green'] .grid-extras { stroke:#133DE2; fill:#133DE2; }
+body[data-theme='blue-green'] .snake { stroke:#5DDB73; fill:#5DDB73; }
+
+/*body[data-theme='blue-white'] md-content { background-color: #17223C; }
+body[data-theme='blue-white'] .grid-base,
+body[data-theme='blue-white'] .grid-extras { stroke:#13203F; fill:#13203F; }
+body[data-theme='blue-white'] .snake { stroke:#EFF0EC; fill:#EFF0EC; }*/
+
+body[data-theme='blue-white'] md-content { background-color: #92B0E8; }
+body[data-theme='blue-white'] .grid-base,
+body[data-theme='blue-white'] .grid-extras { stroke:#425D94; fill:#425D94; }
+body[data-theme='blue-white'] .snake { stroke:#E0E2E7; fill:#E0E2E7; }
 
 
 body[data-theme='orange'] md-content { background-color: #EFB530; }
@@ -104,13 +119,52 @@ body[data-theme='dark-red'] .grid-extras { stroke:#58211A; fill:#58211A; }
 body[data-theme='dark-red'] .snake { stroke:#A5A68D; fill:#A5A68D; }
 
 
+body[data-theme='treehouse'] md-content { background-color: #604527; }
+body[data-theme='treehouse'] .grid-base,
+body[data-theme='treehouse'] .grid-extras { stroke:#423827; fill:#423827; }
+body[data-theme='treehouse'] .snake { stroke:#999997; fill:#999997; }
+
+body[data-theme='treehouse-yellow'] md-content { background-color: #5D7273; } /* TODO: Add a gradient! */
+body[data-theme='treehouse-yellow'] .grid-base,
+body[data-theme='treehouse-yellow'] .grid-extras { stroke:#212825; fill:#212825; }
+body[data-theme='treehouse-yellow'] .snake { stroke:#CF9429; fill:#CF9429; }
+
+
+body[data-theme='treehouse-violet'] md-content { background-color: #5D7273; } /* TODO: Add a gradient! */
+body[data-theme='treehouse-violet'] .grid-base,
+body[data-theme='treehouse-violet'] .grid-extras { stroke:#212825; fill:#212825; }
+body[data-theme='treehouse-violet'] .snake { stroke:#C537F4; fill:#C537F4; }
+
+
+body[data-theme='treehouse-orange'] md-content { background-color: #5D7273; } /* TODO: Add a gradient! */
+body[data-theme='treehouse-orange'] .grid-base,
+body[data-theme='treehouse-orange'] .grid-extras { stroke:#212825; fill:#212825; }
+body[data-theme='treehouse-orange'] .snake { stroke:#EA7D2B; fill:#EA7D2B; }
+
+body[data-theme='treehouse-lightgreen'] md-content { background-color: #5D7273; } /* TODO: Add a gradient! */
+body[data-theme='treehouse-lightgreen'] .grid-base,
+body[data-theme='treehouse-lightgreen'] .grid-extras { stroke:#212825; fill:#212825; }
+body[data-theme='treehouse-lightgreen'] .snake { stroke:#EAD1AB; fill:#EAD1AB; }
+
+
 body[data-theme='gray'] md-content { background-color: #; }
 body[data-theme='gray'] .grid-base,
 body[data-theme='gray'] .grid-extras { stroke:#; fill:#; }
 body[data-theme='gray'] .snake { stroke:#; fill:#; }
 
 
+
+
 .has-bend { stroke-linecap: round; }
+
+
+/* Use Flexbox to center the puzzle */
+#content {
+  display: flex;
+  flex-direction: row;
+}
+#content > .flex-padding { flex: 1; }
+#content > #gridAll { flex: 0; }
 
 .overlay {
   position: absolute;

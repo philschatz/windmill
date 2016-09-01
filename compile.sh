@@ -7,6 +7,7 @@ C_BIN=node_modules/google-closure-compiler
 C_SOY=node_modules/google-closure-templates
 
 OUR_JS_FILES_LIST="
+    node_modules/seedrandom/seedrandom.js
     dist/proto.js
     dist/windmill.soy.js
     src/app.js

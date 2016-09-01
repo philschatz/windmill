@@ -393,16 +393,16 @@ Grid.prototype.getSymmetry = function() {
 // Returns the automatic end orientation at a coord i, j.
 // This is symmetrical for all coordinates and symmetries.
 Grid.prototype.getEndPlacement = function(i, j) {
-  for (var di = -1; di <= 1; di += 2) {
-    var line = this.lineBetweenEntity(i, j, i + di, j);
-    if (!line || line.type == Type.NONE) {
-      return new Orientation(di, 0);
-    }
-  }
   for (var dj = -1; dj <= 1; dj += 2) {
     var line = this.lineBetweenEntity(i, j, i, j + dj);
     if (!line || line.type == Type.NONE) {
       return new Orientation(0, dj);
+    }
+  }
+  for (var di = -1; di <= 1; di += 2) {
+    var line = this.lineBetweenEntity(i, j, i + di, j);
+    if (!line || line.type == Type.NONE) {
+      return new Orientation(di, 0);
     }
   }
   return null;

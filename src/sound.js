@@ -970,7 +970,7 @@ function startSound(count) {
     undefined,         //attack
     undefined,          //decay
     "triangle",       //waveform
-    .1 / (count),            //volume
+    .3 / (count),            //volume
     0,          //pan
     0,            //wait before playing
     0,          //pitch bend amount
@@ -999,6 +999,35 @@ function endSound(count) {
     [.5,.5,false]     //reverb array: [duration, decay, reverse?]
   );
 }
+
+function invalidSound() {
+  windmill.Sound.soundEffect(
+    150,          //frequency
+    undefined,         //attack
+    .1,          //decay
+    "sawtooth",       //waveform
+    .5,            //volume
+    0,          //pan
+    0,            //wait before playing
+    0,          //pitch bend amount
+    true,         //reverse
+    0,          //random pitch range
+    0,            //dissonance
+    undefined,    //echo array: [delay, feedback, filter]
+    undefined,     //reverb array: [duration, decay, reverse?]
+    1
+  );
+}
+
+function successSound() {
+  //D
+  soundEffect(587.33, 0, 0.2, "square", .1, 0, 0);
+  //A
+  soundEffect(880, 0, 0.2, "square", .1, 0, 0.1);
+  //High D
+  soundEffect(1174.66, 0, 0.3, "square", .1, 0, 0.2);
+}
+
 
 var CURRENT_AUDIO_TIMEOUTS = [];
 // Sounds should get fainter
@@ -1035,6 +1064,23 @@ windmill.Sound.playEndRipples = function() {
     setTimeout(function() {endSound(7); }, 9600),
   ]
 }
+
+windmill.Sound.playInvalid = function() {
+  clearSounds();
+  invalidSound();
+  // successSound();
+}
+
+windmill.Sound.playSuccess = function() {
+  clearSounds();
+  successSound();
+}
+
+// windmill.Sound.playAtEnd = function() {
+//   clearSounds();
+//   // put them in an array so they can all be cancelled
+//   startSound(2);
+// }
 
 
 }); // goog.scope

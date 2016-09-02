@@ -17,8 +17,8 @@ OUR_JS_FILES_LIST="
     src/grouping.js
     src/keys.js
     src/shape.js
-    src/snake.js
     src/sound.js
+    src/snake.js
     src/solve.js
     src/validate.js
     src/ui.js

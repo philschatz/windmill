@@ -658,6 +658,7 @@ GridUi.prototype.finishSnake = function() {
   var allowedErrors = errs.allowedErrors;
   if (errors.length) {
     // Failure
+    windmill.Sound.playInvalid();
     this.disappearSnake(
         1000,
         goog.array.concat(errors, allowedErrors),
@@ -674,6 +675,7 @@ GridUi.prototype.finishSnake = function() {
     }
     this.solvedPuzzleVersion = this.puzzleVersion;
     this.solvedPuzzlePath = coordListKey(this.snake.movement);
+    windmill.Sound.playSuccess();
     this.snake.markSuccessful();
     setTimeout(goog.bind(function() {
       // Hacky way to avoid throwing.

@@ -159,12 +159,12 @@ body[data-theme='gray'] .snake { stroke:#; fill:#; }
 
 
 /* Use Flexbox to center the puzzle */
-#content {
+/*#content {
   display: flex;
   flex-direction: row;
 }
 #content > .flex-padding { flex: 1; }
-#content > #gridAll { flex: 0; }
+#content > #gridAll { flex: 0; }*/
 
 .overlay {
   position: absolute;

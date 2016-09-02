@@ -177,6 +177,16 @@ GridUi.prototype.render = function(opt_contents) {
   window.requestAnimationFrame(goog.bind(this.renderContents, this, contents));
 }
 GridUi.prototype.renderContents = function(contents) {
+  // Set the zoom level of gridAll so the puzzle is always on the screen
+  var gridWidth = this.renderer.getRenderWidth();
+  var gridHeight = this.renderer.getRenderHeight();
+  var winWidth = window.innerWidth;
+  var winHeight = window.innerHeight;
+  var zoomWidth = winWidth / gridWidth;
+  var zoomHeight = winHeight / gridHeight;
+  var zoom = Math.min(zoomWidth, zoomHeight);
+  document.getElementById('gridAll').style.zoom = zoom;
+
   this.renderer.renderContents(contents);
   // Now, set up the right event handlers.
   // Because everything is rendered anew (not incrementally),
@@ -186,7 +196,7 @@ GridUi.prototype.renderContents = function(contents) {
   }
   this.eventHandler = new goog.events.EventHandler(this);
 
-  document.getElementById('extras').innerHTML = windmill.templates.gridHtml({
+  document.getElementById('gridExtras').innerHTML = windmill.templates.gridHtml({
     contents: contents,
     editEntity: this.grid.getEntityRepr(this.editEntity)
   });
@@ -210,7 +220,7 @@ GridUi.prototype.renderContents = function(contents) {
   }
   // Set up events to handle for initialization.
   goog.array.forEach(
-      document.getElementById('extras').querySelectorAll('*[data-c]'),
+      document.getElementById('gridExtras').querySelectorAll('*[data-c]'),
       function(el) {
     var node = parseDataC(el);
     var edit = parseDataOp(el);

@@ -50,7 +50,8 @@ window.addEventListener( "load", function() {
     {n:'bw-octagon', theme:'blue', c:'CAkSAigIEgIIBBIAEgQIBxACEgASBAgHEAESABIECAcQARIAEgQIBxACEgIoCxIECAcQARIAEgQIBxABEgASBAgHEAESABIECAcQARICKAsSBAgHEAESABIECAcQARIAEgQIBxABEgASBAgHEAESAigLEgQIBxACEgASBAgHEAESABIECAcQARIAEgQIBxACEgASAggDEgIoCA==_0'},
 
     // dot teaching section
-    {n:'dot1', theme:'light-green', c:'CAUSAigEEgIIBBICKAISAggGEgASAggGEgIoChICCAMSAigE_0'}, // dot 2x2
+    // {n:'dot1', theme:'light-green', c:'CAUSAigEEgIIBBICKAISAggGEgASAggGEgIoChICCAMSAigE_0'}, // dot 2x2
+    {n:'dot1', theme:'light-green', c:'CAUSAggGEgIoAxICCAQSAigPEgIIAxICKAMSAggG_0'}, // dot 2x2
 
     {n:'dot2', theme:'light-green', c:'CAcSABICCAESAggGEgIoAxICCAQSAggBEgIoChICCAYSAggBEgIoCBICCAYSABICCAYSAigIEgIIARICKAISAggDEgIoBRICCAY=_0'}, // dot 3x3
     {n:'dot3', theme:'light-green', c:'CAcSABICCAESAggGEgIoAxICCAQSAggBEgIoCRICCAESAggGEgIIARICKAgSAggGEgASAggGEgIoCBICCAESAigCEgIIAxICKAUSAggG_0'}, // dot 3x3

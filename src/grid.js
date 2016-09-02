@@ -144,6 +144,21 @@ Grid.prototype.lineBetweenEntity = function(i1, j1, i2, j2, opt_val) {
   }
   return this.lineEntity(
       Math.min(i1, i2), Math.min(j1, j2), i1 == i2, opt_val);
+
+  // for (var x=0; x < Math.abs(i1 - i2); x++) {
+  //   var ret = this.lineEntity(
+  //       Math.min(i1, i2)+x, Math.min(j1, j2), i1 == i2, opt_val);
+  //   if (ret) {
+  //     return ret;
+  //   }
+  // }
+  // for (var x=0; x < Math.abs(j1 - j2); x++) {
+  //   var ret = this.lineEntity(
+  //       Math.min(i1, i2), Math.min(j1, j2)+x, i1 == i2, opt_val);
+  //   if (ret) {
+  //     return ret;
+  //   }
+  // }
 }
 Grid.prototype.lineEntity = function(i, j, isDown, opt_val) {
   var goDown = isDown ? 1 : 0;
@@ -393,6 +408,18 @@ Grid.prototype.getSymmetry = function() {
 // Returns the automatic end orientation at a coord i, j.
 // This is symmetrical for all coordinates and symmetries.
 Grid.prototype.getEndPlacement = function(i, j) {
+
+  // if it's on the top row, then make it point up
+  if (j === 0) {
+    return new Orientation(0, -1);
+  } else if (i === 0) {
+    return new Orientation(-1, 0);
+  } else if (j === this.height) {
+    return new Orientation(0, 1);
+  } else if (i === this.width) {
+    return new Orientation(1, 0);
+  }
+
   for (var dj = -1; dj <= 1; dj += 2) {
     var line = this.lineBetweenEntity(i, j, i, j + dj);
     if (!line || line.type == Type.NONE) {

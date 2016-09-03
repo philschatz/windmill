@@ -391,9 +391,12 @@ window.addEventListener( "load", function() {
 
   index = findPuzzle(window.location.hash.replace('#', ''));
 
+  // Screensaver mode: Show different puzzles randomly (after 10min of inactivity?)
   // setInterval(function() {
-  //   startLevel();
-  //   index++;
+  //   if (PUZZLES[index]) {
+  //     startLevel();
+  //     index++;
+  //   }
   // }, 1000)
   startLevel();
 

@@ -119,10 +119,10 @@ body[data-theme='dark-red'] .grid-extras { stroke:#58211A; fill:#58211A; }
 body[data-theme='dark-red'] .snake { stroke:#A5A68D; fill:#A5A68D; }
 
 
-body[data-theme='treehouse'] md-content { background-color: #604527; }
-body[data-theme='treehouse'] .grid-base,
-body[data-theme='treehouse'] .grid-extras { stroke:#423827; fill:#423827; }
-body[data-theme='treehouse'] .snake { stroke:#999997; fill:#999997; }
+body[data-theme='treehouse-green'] md-content { background-color: #604527; }
+body[data-theme='treehouse-green'] .grid-base,
+body[data-theme='treehouse-green'] .grid-extras { stroke:#423827; fill:#423827; }
+body[data-theme='treehouse-green'] .snake { stroke:#999997; fill:#999997; }
 
 body[data-theme='treehouse-yellow'] md-content { background-color: #5D7273; } /* TODO: Add a gradient! */
 body[data-theme='treehouse-yellow'] .grid-base,
@@ -152,11 +152,27 @@ body[data-theme='gray'] .grid-base,
 body[data-theme='gray'] .grid-extras { stroke:#; fill:#; }
 body[data-theme='gray'] .snake { stroke:#; fill:#; }
 
+body[data-theme='quary'] md-content { background-color: #1D1D1A; }
+body[data-theme='quary'] .grid-base,
+body[data-theme='quary'] .grid-extras { stroke:#58756B; fill:#58756B; }
+body[data-theme='quary'] .snake { stroke:#F7F9F6; fill:#F7F9F6; }
+
 
 
 
 .has-bend { stroke-linecap: round; }
 
+/* Applies to .square-piece and .star-piece */
+g[data-color="white"] { stroke: white; fill: white; }
+g[data-color="black"] { stroke: black; fill: black; }
+g[data-color="red"] { stroke: #E34626; fill: #E34626; }
+g[data-color="green"] { stroke: #95F877; fill: #95F877; }
+g[data-color="blue"] { stroke: #0024F2; fill: #0024F2; }
+g[data-color="cyan"] { stroke: #67FAF9; fill: #67FAF9; }
+/*g[data-color="orange"] { stroke: #F6CC3C; fill: #F6CC3C; }*/
+g[data-color="magenta"] { stroke: #AD3DF1; fill: #AD3DF1; }
+g[data-color="orange"] { stroke: orange; fill: orange; }
+g[data-color="yellow"] { stroke: yellow; fill: yellow; }
 
 /* Use Flexbox to center the puzzle */
 /*#content {

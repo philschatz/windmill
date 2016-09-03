@@ -298,7 +298,7 @@ windmill.templates.starSvg = function(opt_data, opt_ignored) {
   var output = '';
   var color__soy142 = '' + ('' + windmill.templates.colorSvg(opt_data));
   color__soy142 = soydata.$$markUnsanitizedTextForInternalBlocks(color__soy142);
-  output += windmill.templates.cellSvg(soy.$$augmentMap(opt_data, {content: soydata.VERY_UNSAFE.$$ordainSanitizedHtmlForInternalBlocks('<rect width="30px" height="30px" /><rect width="30px" height="30px" transform="rotate(45 15 15)" />'), width: 30, height: 30, attributes: soydata.VERY_UNSAFE.$$ordainSanitizedAttributesForInternalBlocks('fill="' + soy.$$escapeHtmlAttribute(color__soy142) + '" stroke="' + soy.$$escapeHtmlAttribute(color__soy142) + '"')}));
+  output += windmill.templates.cellSvg(soy.$$augmentMap(opt_data, {content: soydata.VERY_UNSAFE.$$ordainSanitizedHtmlForInternalBlocks('<rect width="30px" height="30px" /><rect width="30px" height="30px" transform="rotate(45 15 15)" />'), width: 30, height: 30, attributes: soydata.VERY_UNSAFE.$$ordainSanitizedAttributesForInternalBlocks(' class="star-piece" data-color="' + soy.$$escapeHtmlAttribute(color__soy142) + '"')}));
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
 };
 if (goog.DEBUG) {
@@ -324,12 +324,12 @@ windmill.templates.hexagonSvg = function(opt_data, opt_ignored) {
   goog.asserts.assert(opt_data.direction == null || goog.isNumber(opt_data.direction), "expected param 'direction' of type null|number|undefined.");
   var direction = /** @type {null|number|undefined} */ (opt_data.direction);
   var output = '';
-  var r__soy156 = 8;
-  var s__soy157 = r__soy156 / 2;
-  var h__soy158 = r__soy156 * 1.73205 / 2;
-  var fullWidth__soy159 = r__soy156 * 2;
-  var fullHeight__soy160 = h__soy158 * 2;
-  output += '<polygon class="hexagon" points="' + soy.$$escapeHtmlAttribute(-r__soy156) + ',0 ' + soy.$$escapeHtmlAttribute(-s__soy157) + ',' + soy.$$escapeHtmlAttribute(-h__soy158) + ' ' + soy.$$escapeHtmlAttribute(s__soy157) + ',' + soy.$$escapeHtmlAttribute(-h__soy158) + ' ' + soy.$$escapeHtmlAttribute(r__soy156) + ',0 ' + soy.$$escapeHtmlAttribute(s__soy157) + ',' + soy.$$escapeHtmlAttribute(h__soy158) + ' ' + soy.$$escapeHtmlAttribute(-s__soy157) + ',' + soy.$$escapeHtmlAttribute(h__soy158) + '" transform="translate(' + soy.$$escapeHtmlAttribute(x + (direction == 3 ? 50 : 0)) + ',' + soy.$$escapeHtmlAttribute(y + (direction == 4 ? 50 : 0)) + ')" />';
+  var r__soy154 = 8;
+  var s__soy155 = r__soy154 / 2;
+  var h__soy156 = r__soy154 * 1.73205 / 2;
+  var fullWidth__soy157 = r__soy154 * 2;
+  var fullHeight__soy158 = h__soy156 * 2;
+  output += '<polygon class="hexagon" points="' + soy.$$escapeHtmlAttribute(-r__soy154) + ',0 ' + soy.$$escapeHtmlAttribute(-s__soy155) + ',' + soy.$$escapeHtmlAttribute(-h__soy156) + ' ' + soy.$$escapeHtmlAttribute(s__soy155) + ',' + soy.$$escapeHtmlAttribute(-h__soy156) + ' ' + soy.$$escapeHtmlAttribute(r__soy154) + ',0 ' + soy.$$escapeHtmlAttribute(s__soy155) + ',' + soy.$$escapeHtmlAttribute(h__soy156) + ' ' + soy.$$escapeHtmlAttribute(-s__soy155) + ',' + soy.$$escapeHtmlAttribute(h__soy156) + '" transform="translate(' + soy.$$escapeHtmlAttribute(x + (direction == 3 ? 50 : 0)) + ',' + soy.$$escapeHtmlAttribute(y + (direction == 4 ? 50 : 0)) + ')" />';
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
 };
 if (goog.DEBUG) {
@@ -352,27 +352,27 @@ windmill.templates.tetrisSvg = function(opt_data, opt_ignored) {
   var shape = goog.asserts.assertObject(opt_data.shape, "expected parameter 'shape' of type [free: bool, height: int, negative: bool, rows: list<list<bool>>, width: int].");
   var maximumSize = goog.asserts.assertNumber(opt_data.maximumSize, "expected parameter 'maximumSize' of type int.");
   var output = '';
-  var width__soy187 = 18 * shape.width + 3 * (shape.width - 1);
-  var height__soy188 = 18 * shape.height + 3 * (shape.height - 1);
-  var allowedSpace__soy189 = 63.0 * (shape.free ? 0.7071 : 1);
-  var maxDimension__soy190 = 18 * maximumSize + 3 * (maximumSize - 1);
-  var scaleFactor__soy191 = maxDimension__soy190 <= allowedSpace__soy189 ? 1 : allowedSpace__soy189 / maxDimension__soy190;
-  var neg__soy192 = shape.negative ? 2 : 0;
-  var pos__soy193 = ! shape.negative ? 2 : 0;
-  var param194 = '<g transform="' + ((shape.free) ? 'rotate(-15, ' + soy.$$escapeHtmlAttribute(width__soy187 * scaleFactor__soy191 / 2) + ', ' + soy.$$escapeHtmlAttribute(height__soy188 * scaleFactor__soy191 / 2) + ') scale(' + soy.$$escapeHtmlAttribute(scaleFactor__soy191) + ')' : 'scale(' + soy.$$escapeHtmlAttribute(scaleFactor__soy191) + ')') + '">';
-  var rowList227 = shape.rows;
-  var rowListLen227 = rowList227.length;
-  for (var rowIndex227 = 0; rowIndex227 < rowListLen227; rowIndex227++) {
-    var rowData227 = rowList227[rowIndex227];
-    var colList225 = rowData227;
-    var colListLen225 = colList225.length;
-    for (var colIndex225 = 0; colIndex225 < colListLen225; colIndex225++) {
-      var colData225 = colList225[colIndex225];
-      param194 += (colData225) ? '<rect width="' + soy.$$escapeHtmlAttribute(18 - 2 * neg__soy192) + 'px" height="' + soy.$$escapeHtmlAttribute(18 - 2 * neg__soy192) + 'px" rx="' + soy.$$escapeHtmlAttribute(pos__soy193) + '" ry="' + soy.$$escapeHtmlAttribute(pos__soy193) + '" x="' + soy.$$escapeHtmlAttribute(21 * colIndex225 + neg__soy192) + '" y="' + soy.$$escapeHtmlAttribute(21 * rowIndex227 + neg__soy192) + '" />' : '';
+  var width__soy185 = 18 * shape.width + 3 * (shape.width - 1);
+  var height__soy186 = 18 * shape.height + 3 * (shape.height - 1);
+  var allowedSpace__soy187 = 63.0 * (shape.free ? 0.7071 : 1);
+  var maxDimension__soy188 = 18 * maximumSize + 3 * (maximumSize - 1);
+  var scaleFactor__soy189 = maxDimension__soy188 <= allowedSpace__soy187 ? 1 : allowedSpace__soy187 / maxDimension__soy188;
+  var neg__soy190 = shape.negative ? 2 : 0;
+  var pos__soy191 = ! shape.negative ? 2 : 0;
+  var param192 = '<g transform="' + ((shape.free) ? 'rotate(-15, ' + soy.$$escapeHtmlAttribute(width__soy185 * scaleFactor__soy189 / 2) + ', ' + soy.$$escapeHtmlAttribute(height__soy186 * scaleFactor__soy189 / 2) + ') scale(' + soy.$$escapeHtmlAttribute(scaleFactor__soy189) + ')' : 'scale(' + soy.$$escapeHtmlAttribute(scaleFactor__soy189) + ')') + '">';
+  var rowList225 = shape.rows;
+  var rowListLen225 = rowList225.length;
+  for (var rowIndex225 = 0; rowIndex225 < rowListLen225; rowIndex225++) {
+    var rowData225 = rowList225[rowIndex225];
+    var colList223 = rowData225;
+    var colListLen223 = colList223.length;
+    for (var colIndex223 = 0; colIndex223 < colListLen223; colIndex223++) {
+      var colData223 = colList223[colIndex223];
+      param192 += (colData223) ? '<rect width="' + soy.$$escapeHtmlAttribute(18 - 2 * neg__soy190) + 'px" height="' + soy.$$escapeHtmlAttribute(18 - 2 * neg__soy190) + 'px" rx="' + soy.$$escapeHtmlAttribute(pos__soy191) + '" ry="' + soy.$$escapeHtmlAttribute(pos__soy191) + '" x="' + soy.$$escapeHtmlAttribute(21 * colIndex223 + neg__soy190) + '" y="' + soy.$$escapeHtmlAttribute(21 * rowIndex225 + neg__soy190) + '" />' : '';
     }
   }
-  param194 += '</g>';
-  output += windmill.templates.cellSvg(soy.$$augmentMap(opt_data, {content: soydata.VERY_UNSAFE.$$ordainSanitizedHtmlForInternalBlocks(param194), width: width__soy187 * scaleFactor__soy191, height: height__soy188 * scaleFactor__soy191, attributes: soydata.VERY_UNSAFE.$$ordainSanitizedAttributesForInternalBlocks('' + ((shape.negative) ? 'class="tetris-hole-square"' : 'class="tetris-square"'))}));
+  param192 += '</g>';
+  output += windmill.templates.cellSvg(soy.$$augmentMap(opt_data, {content: soydata.VERY_UNSAFE.$$ordainSanitizedHtmlForInternalBlocks(param192), width: width__soy185 * scaleFactor__soy189, height: height__soy186 * scaleFactor__soy189, attributes: soydata.VERY_UNSAFE.$$ordainSanitizedAttributesForInternalBlocks('' + ((shape.negative) ? 'class="tetris-hole-square"' : 'class="tetris-square"'))}));
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
 };
 if (goog.DEBUG) {
@@ -406,10 +406,10 @@ if (goog.DEBUG) {
  */
 windmill.templates.logo = function(opt_data, opt_ignored) {
   var output = '';
-  var coords__soy244 = {x: 0, y: 0};
-  var zoom15__soy245 = 'scale(1.5) translate(-16.66, -16.66)';
-  zoom15__soy245 = soydata.$$markUnsanitizedTextForInternalBlocks(zoom15__soy245);
-  output += '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 32 32"><g id="tetris" transform="scale(0.32, 0.32) ' + soy.$$escapeHtmlAttribute(zoom15__soy245) + '">' + windmill.templates.tetrisSvg(soy.$$augmentMap(coords__soy244, {shape: {rows: [[true, true], [true, true]], width: 2, height: 2, free: false, negative: false}, maximumSize: 2})) + '</g></svg>';
+  var coords__soy242 = {x: 0, y: 0};
+  var zoom15__soy243 = 'scale(1.5) translate(-16.66, -16.66)';
+  zoom15__soy243 = soydata.$$markUnsanitizedTextForInternalBlocks(zoom15__soy243);
+  output += '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 32 32"><g id="tetris" transform="scale(0.32, 0.32) ' + soy.$$escapeHtmlAttribute(zoom15__soy243) + '">' + windmill.templates.tetrisSvg(soy.$$augmentMap(coords__soy242, {shape: {rows: [[true, true], [true, true]], width: 2, height: 2, free: false, negative: false}, maximumSize: 2})) + '</g></svg>';
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
 };
 if (goog.DEBUG) {
@@ -425,25 +425,25 @@ if (goog.DEBUG) {
  */
 windmill.templates.icons = function(opt_data, opt_ignored) {
   var output = '';
-  var coords__soy255 = {x: 0, y: 0};
-  var zoom1__soy256 = 'none';
-  zoom1__soy256 = soydata.$$markUnsanitizedTextForInternalBlocks(zoom1__soy256);
-  var zoom15__soy258 = 'scale(1.5) translate(-16.66, -16.66)';
-  zoom15__soy258 = soydata.$$markUnsanitizedTextForInternalBlocks(zoom15__soy258);
-  var zoom2__soy260 = 'scale(2) translate(-25, -25)';
-  zoom2__soy260 = soydata.$$markUnsanitizedTextForInternalBlocks(zoom2__soy260);
+  var coords__soy253 = {x: 0, y: 0};
+  var zoom1__soy254 = 'none';
+  zoom1__soy254 = soydata.$$markUnsanitizedTextForInternalBlocks(zoom1__soy254);
+  var zoom15__soy256 = 'scale(1.5) translate(-16.66, -16.66)';
+  zoom15__soy256 = soydata.$$markUnsanitizedTextForInternalBlocks(zoom15__soy256);
+  var zoom2__soy258 = 'scale(2) translate(-25, -25)';
+  zoom2__soy258 = soydata.$$markUnsanitizedTextForInternalBlocks(zoom2__soy258);
   output += '<svg xmlns="http://www.w3.org/2000/svg" version="1.1"><defs>';
-  var colorList278 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  var colorListLen278 = colorList278.length;
-  for (var colorIndex278 = 0; colorIndex278 < colorListLen278; colorIndex278++) {
-    var colorData278 = colorList278[colorIndex278];
-    output += '<g id="square' + soy.$$escapeHtmlAttribute(colorData278) + '"><g transform="' + soy.$$escapeHtmlAttribute(zoom15__soy258) + '">' + windmill.templates.squareSvg(soy.$$augmentMap(coords__soy255, {color: colorData278})) + '</g></g><g id="star' + soy.$$escapeHtmlAttribute(colorData278) + '"><g transform="' + soy.$$escapeHtmlAttribute(zoom15__soy258) + '">' + windmill.templates.starSvg(soy.$$augmentMap(coords__soy255, {color: colorData278})) + '</g></g>';
+  var colorList276 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  var colorListLen276 = colorList276.length;
+  for (var colorIndex276 = 0; colorIndex276 < colorListLen276; colorIndex276++) {
+    var colorData276 = colorList276[colorIndex276];
+    output += '<g id="square' + soy.$$escapeHtmlAttribute(colorData276) + '"><g transform="' + soy.$$escapeHtmlAttribute(zoom15__soy256) + '">' + windmill.templates.squareSvg(soy.$$augmentMap(coords__soy253, {color: colorData276})) + '</g></g><g id="star' + soy.$$escapeHtmlAttribute(colorData276) + '"><g transform="' + soy.$$escapeHtmlAttribute(zoom15__soy256) + '">' + windmill.templates.starSvg(soy.$$augmentMap(coords__soy253, {color: colorData276})) + '</g></g>';
   }
-  output += '<g id="tetris" transform="' + soy.$$escapeHtmlAttribute(zoom15__soy258) + '">' + windmill.templates.tetrisSvg(soy.$$augmentMap(coords__soy255, {shape: {rows: [[true, true], [true, true]], width: 2, height: 2, free: false, negative: false}, maximumSize: 2})) + '</g><g id="negative" transform="' + soy.$$escapeHtmlAttribute(zoom15__soy258) + '">' + windmill.templates.tetrisSvg(soy.$$augmentMap(coords__soy255, {shape: {rows: [[true, true], [true, true]], width: 2, height: 2, free: false, negative: true}, maximumSize: 2})) + '</g><g id="error" transform="' + soy.$$escapeHtmlAttribute(zoom15__soy258) + '">' + windmill.templates.errorSvg(coords__soy255) + '</g>';
-  for (var count297 = 0; count297 < 3; count297++) {
-    output += '<g id="triangle' + soy.$$escapeHtmlAttribute(count297) + '" transform="' + soy.$$escapeHtmlAttribute(zoom15__soy258) + '">' + windmill.templates.triangleSvg(soy.$$augmentMap(coords__soy255, {count: count297 + 1})) + '</g>';
+  output += '<g id="tetris" transform="' + soy.$$escapeHtmlAttribute(zoom15__soy256) + '">' + windmill.templates.tetrisSvg(soy.$$augmentMap(coords__soy253, {shape: {rows: [[true, true], [true, true]], width: 2, height: 2, free: false, negative: false}, maximumSize: 2})) + '</g><g id="negative" transform="' + soy.$$escapeHtmlAttribute(zoom15__soy256) + '">' + windmill.templates.tetrisSvg(soy.$$augmentMap(coords__soy253, {shape: {rows: [[true, true], [true, true]], width: 2, height: 2, free: false, negative: true}, maximumSize: 2})) + '</g><g id="error" transform="' + soy.$$escapeHtmlAttribute(zoom15__soy256) + '">' + windmill.templates.errorSvg(coords__soy253) + '</g>';
+  for (var count295 = 0; count295 < 3; count295++) {
+    output += '<g id="triangle' + soy.$$escapeHtmlAttribute(count295) + '" transform="' + soy.$$escapeHtmlAttribute(zoom15__soy256) + '">' + windmill.templates.triangleSvg(soy.$$augmentMap(coords__soy253, {count: count295 + 1})) + '</g>';
   }
-  output += '<g id="start" transform="translate(50, 50) scale(1.5)" stroke="black" fill="black"><g transform="translate(-6, 0)">' + windmill.templates.startSvg(coords__soy255) + '</g>' + windmill.templates.gridLineSvg(soy.$$augmentMap(coords__soy255, {direction: 3})) + '</g><g id="end" transform="translate(40, 50) scale(1.5)" stroke="black"><line x1="0" y1="0" x2="20" y2="0" stroke-width="20" stroke-linecapPHIL="round" /><line x1="0" y1="0" x2="10" y2="0" stroke-width="20" stroke-linecap="square" /></g><g id="disjoint" transform="translate(-25, 50) scale(1.5)" stroke="black">' + windmill.templates.gridLineSvg(soy.$$augmentMap(coords__soy255, {direction: 3, disjoint: true})) + '</g><g id="hexagon" transform="translate(-25, 50) scale(1.5)" stroke="black">' + windmill.templates.gridLineSvg(soy.$$augmentMap(coords__soy255, {direction: 3})) + '<g transform="translate(50, 0)">' + windmill.templates.hexagonSvg(coords__soy255) + '</g></g></defs></svg>';
+  output += '<g id="start" transform="translate(50, 50) scale(1.5)" stroke="black" fill="black"><g transform="translate(-6, 0)">' + windmill.templates.startSvg(coords__soy253) + '</g>' + windmill.templates.gridLineSvg(soy.$$augmentMap(coords__soy253, {direction: 3})) + '</g><g id="end" transform="translate(40, 50) scale(1.5)" stroke="black"><line x1="0" y1="0" x2="20" y2="0" stroke-width="20" stroke-linecapPHIL="round" /><line x1="0" y1="0" x2="10" y2="0" stroke-width="20" stroke-linecap="square" /></g><g id="disjoint" transform="translate(-25, 50) scale(1.5)" stroke="black">' + windmill.templates.gridLineSvg(soy.$$augmentMap(coords__soy253, {direction: 3, disjoint: true})) + '</g><g id="hexagon" transform="translate(-25, 50) scale(1.5)" stroke="black">' + windmill.templates.gridLineSvg(soy.$$augmentMap(coords__soy253, {direction: 3})) + '<g transform="translate(50, 0)">' + windmill.templates.hexagonSvg(coords__soy253) + '</g></g></defs></svg>';
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
 };
 if (goog.DEBUG) {
@@ -459,9 +459,9 @@ if (goog.DEBUG) {
  */
 windmill.templates.squareSvg = function(opt_data, opt_ignored) {
   var output = '';
-  var color__soy330 = '' + ('' + windmill.templates.colorSvg(opt_data));
-  color__soy330 = soydata.$$markUnsanitizedTextForInternalBlocks(color__soy330);
-  output += windmill.templates.cellSvg(soy.$$augmentMap(opt_data, {content: soydata.VERY_UNSAFE.$$ordainSanitizedHtmlForInternalBlocks('<rect width="40px" height="40px" rx="15px" ry="15px" />'), width: 40, height: 40, attributes: soydata.VERY_UNSAFE.$$ordainSanitizedAttributesForInternalBlocks('fill="' + soy.$$escapeHtmlAttribute(color__soy330) + '" stroke="' + soy.$$escapeHtmlAttribute(color__soy330) + '"')}));
+  var color__soy328 = '' + ('' + windmill.templates.colorSvg(opt_data));
+  color__soy328 = soydata.$$markUnsanitizedTextForInternalBlocks(color__soy328);
+  output += windmill.templates.cellSvg(soy.$$augmentMap(opt_data, {content: soydata.VERY_UNSAFE.$$ordainSanitizedHtmlForInternalBlocks('<rect width="40px" height="40px" rx="15px" ry="15px" />'), width: 40, height: 40, attributes: soydata.VERY_UNSAFE.$$ordainSanitizedAttributesForInternalBlocks('class="square-piece" data-color="' + soy.$$escapeHtmlAttribute(color__soy328) + '"')}));
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
 };
 if (goog.DEBUG) {
@@ -530,15 +530,15 @@ windmill.templates.gridLineSvg = function(opt_data, opt_ignored) {
   goog.asserts.assert(opt_data.disjoint == null || goog.isBoolean(opt_data.disjoint) || opt_data.disjoint === 1 || opt_data.disjoint === 0, "expected param 'disjoint' of type boolean|null|undefined.");
   var disjoint = /** @type {boolean|null|undefined} */ (opt_data.disjoint);
   var output = '';
-  var horizontal__soy357 = direction == 3 ? 1 : 0;
-  var vertical__soy358 = 1 - horizontal__soy357;
-  var soff__soy359 = start ? start : 0;
-  var eoff__soy360 = end ? end : 0;
-  var partial__soy361 = start || end ? 1 : 0;
-  output += '<!-- Partially trying to fix the just-a-line puzzle case by using rectangles instead of lines<rect x="' + soy.$$escapeHtmlRcdata(x + horizontal__soy357 * partial__soy361 * soff__soy359 - 10.0) + '" y="' + soy.$$escapeHtmlRcdata(y + vertical__soy358 * partial__soy361 * soff__soy359 - 10.0) + '" width="' + soy.$$escapeHtmlRcdata(horizontal__soy357 ? horizontal__soy357 * (100 - partial__soy361 * eoff__soy360) : 20) + 'px" height="' + soy.$$escapeHtmlRcdata(vertical__soy358 ? vertical__soy358 * (100 - partial__soy361 * eoff__soy360) : 20) + 'px" partial="' + soy.$$escapeHtmlRcdata(partial__soy361) + '" soff="' + soy.$$escapeHtmlRcdata(soff__soy359) + '" eoff="' + soy.$$escapeHtmlRcdata(eoff__soy360) + '" horizontal="' + soy.$$escapeHtmlRcdata(horizontal__soy357) + '" vertical="' + soy.$$escapeHtmlRcdata(vertical__soy358) + '" />--><line x1="' + soy.$$escapeHtmlAttribute(x + horizontal__soy357 * partial__soy361 * soff__soy359) + '" y1="' + soy.$$escapeHtmlAttribute(y + vertical__soy358 * partial__soy361 * soff__soy359) + '" x2="' + soy.$$escapeHtmlAttribute(x + horizontal__soy357 * (100 - partial__soy361 * eoff__soy360)) + '" y2="' + soy.$$escapeHtmlAttribute(y + vertical__soy358 * (100 - partial__soy361 * eoff__soy360)) + '" stroke-width="20"' + ((disjoint) ? 'stroke-dasharray="30,40,30"' : '') + 'class="' + soy.$$escapeHtmlAttribute(hasBend ? 'has-bend' : 'not-has-bend') + '" />';
+  var horizontal__soy353 = direction == 3 ? 1 : 0;
+  var vertical__soy354 = 1 - horizontal__soy353;
+  var soff__soy355 = start ? start : 0;
+  var eoff__soy356 = end ? end : 0;
+  var partial__soy357 = start || end ? 1 : 0;
+  output += '<!-- Partially trying to fix the just-a-line puzzle case by using rectangles instead of lines<rect x="' + soy.$$escapeHtmlRcdata(x + horizontal__soy353 * partial__soy357 * soff__soy355 - 10.0) + '" y="' + soy.$$escapeHtmlRcdata(y + vertical__soy354 * partial__soy357 * soff__soy355 - 10.0) + '" width="' + soy.$$escapeHtmlRcdata(horizontal__soy353 ? horizontal__soy353 * (100 - partial__soy357 * eoff__soy356) : 20) + 'px" height="' + soy.$$escapeHtmlRcdata(vertical__soy354 ? vertical__soy354 * (100 - partial__soy357 * eoff__soy356) : 20) + 'px" partial="' + soy.$$escapeHtmlRcdata(partial__soy357) + '" soff="' + soy.$$escapeHtmlRcdata(soff__soy355) + '" eoff="' + soy.$$escapeHtmlRcdata(eoff__soy356) + '" horizontal="' + soy.$$escapeHtmlRcdata(horizontal__soy353) + '" vertical="' + soy.$$escapeHtmlRcdata(vertical__soy354) + '" />--><line x1="' + soy.$$escapeHtmlAttribute(x + horizontal__soy353 * partial__soy357 * soff__soy355) + '" y1="' + soy.$$escapeHtmlAttribute(y + vertical__soy354 * partial__soy357 * soff__soy355) + '" x2="' + soy.$$escapeHtmlAttribute(x + horizontal__soy353 * (100 - partial__soy357 * eoff__soy356)) + '" y2="' + soy.$$escapeHtmlAttribute(y + vertical__soy354 * (100 - partial__soy357 * eoff__soy356)) + '" stroke-width="20"' + ((disjoint) ? 'stroke-dasharray="30,40,30"' : '') + 'class="' + soy.$$escapeHtmlAttribute(hasBend ? 'has-bend' : 'not-has-bend') + '" />';
   if (disjoint) {
-    var r__soy405 = 10.0;
-    output += '<g stroke="none"><rect width="' + soy.$$escapeHtmlAttribute(2 * r__soy405) + '" height="' + soy.$$escapeHtmlAttribute(2 * r__soy405) + '" x="' + soy.$$escapeHtmlAttribute(x + horizontal__soy357 * 30 - r__soy405) + '" y="' + soy.$$escapeHtmlAttribute(y + vertical__soy358 * 30 - r__soy405) + '" /><rect width="' + soy.$$escapeHtmlAttribute(2 * r__soy405) + '" height="' + soy.$$escapeHtmlAttribute(2 * r__soy405) + '" x="' + soy.$$escapeHtmlAttribute(x + horizontal__soy357 * 70 - r__soy405) + '" y="' + soy.$$escapeHtmlAttribute(y + vertical__soy358 * 70 - r__soy405) + '" /></g>';
+    var r__soy401 = 10.0;
+    output += '<g stroke="none"><rect width="' + soy.$$escapeHtmlAttribute(2 * r__soy401) + '" height="' + soy.$$escapeHtmlAttribute(2 * r__soy401) + '" x="' + soy.$$escapeHtmlAttribute(x + horizontal__soy353 * 30 - r__soy401) + '" y="' + soy.$$escapeHtmlAttribute(y + vertical__soy354 * 30 - r__soy401) + '" /><rect width="' + soy.$$escapeHtmlAttribute(2 * r__soy401) + '" height="' + soy.$$escapeHtmlAttribute(2 * r__soy401) + '" x="' + soy.$$escapeHtmlAttribute(x + horizontal__soy353 * 70 - r__soy401) + '" y="' + soy.$$escapeHtmlAttribute(y + vertical__soy354 * 70 - r__soy401) + '" /></g>';
   }
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
 };
@@ -596,11 +596,11 @@ if (goog.DEBUG) {
 windmill.templates.snakeSvg = function(opt_data, opt_ignored) {
   var contents = goog.asserts.assertArray(opt_data.contents, "expected parameter 'contents' of type list<unknown>.");
   var output = '<g class="snake">';
-  var segmentList449 = contents;
-  var segmentListLen449 = segmentList449.length;
-  for (var segmentIndex449 = 0; segmentIndex449 < segmentListLen449; segmentIndex449++) {
-    var segmentData449 = segmentList449[segmentIndex449];
-    output += windmill.templates.snakeSegmentSvg(soy.$$augmentMap(segmentData449, {isLastSegment: segmentIndex449 == segmentListLen449 - 1}));
+  var segmentList445 = contents;
+  var segmentListLen445 = segmentList445.length;
+  for (var segmentIndex445 = 0; segmentIndex445 < segmentListLen445; segmentIndex445++) {
+    var segmentData445 = segmentList445[segmentIndex445];
+    output += windmill.templates.snakeSegmentSvg(soy.$$augmentMap(segmentData445, {isLastSegment: segmentIndex445 == segmentListLen445 - 1}));
   }
   output += '</g>';
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
@@ -640,8 +640,8 @@ windmill.templates.snakeSegmentSvg = function(opt_data, opt_ignored) {
   goog.asserts.assert(opt_data.end == null || goog.isNumber(opt_data.end), "expected param 'end' of type null|number|undefined.");
   var end = /** @type {null|number|undefined} */ (opt_data.end);
   var output = '';
-  var coord__soy453 = {x: 100 * i, y: 100 * j, hasBend: true};
-  output += (segmentType == 1) ? windmill.templates.startSvg(coord__soy453) : (segmentType == 2 && direction != null) ? windmill.templates.gridLineSvg(soy.$$augmentMap(coord__soy453, {direction: direction, isLastSegment: isLastSegment})) : (segmentType == 3 && start != null && end != null && direction != null) ? windmill.templates.gridLineSvg(soy.$$augmentMap(coord__soy453, {direction: direction, isLastSegment: isLastSegment, start: start, end: end})) : '';
+  var coord__soy449 = {x: 100 * i, y: 100 * j, hasBend: true};
+  output += (segmentType == 1) ? windmill.templates.startSvg(coord__soy449) : (segmentType == 2 && direction != null) ? windmill.templates.gridLineSvg(soy.$$augmentMap(coord__soy449, {direction: direction, isLastSegment: isLastSegment})) : (segmentType == 3 && start != null && end != null && direction != null) ? windmill.templates.gridLineSvg(soy.$$augmentMap(coord__soy449, {direction: direction, isLastSegment: isLastSegment, start: start, end: end})) : '';
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
 };
 if (goog.DEBUG) {
@@ -663,18 +663,18 @@ windmill.templates.gridHtml = function(opt_data, opt_ignored) {
   goog.asserts.assert(opt_data.editEntity == null || opt_data.editEntity != null, "expected param 'editEntity' of type (?).");
   var editEntity = /** @type {(?)} */ (opt_data.editEntity);
   var output = '';
-  var entityList469 = contents;
-  var entityListLen469 = entityList469.length;
-  for (var entityIndex469 = 0; entityIndex469 < entityListLen469; entityIndex469++) {
-    var entityData469 = entityList469[entityIndex469];
-    output += windmill.templates.entityPlayHtml(entityData469);
+  var entityList465 = contents;
+  var entityListLen465 = entityList465.length;
+  for (var entityIndex465 = 0; entityIndex465 < entityListLen465; entityIndex465++) {
+    var entityData465 = entityList465[entityIndex465];
+    output += windmill.templates.entityPlayHtml(entityData465);
   }
   if (editEntity) {
-    var entityList475 = contents;
-    var entityListLen475 = entityList475.length;
-    for (var entityIndex475 = 0; entityIndex475 < entityListLen475; entityIndex475++) {
-      var entityData475 = entityList475[entityIndex475];
-      output += windmill.templates.entityEditHtml(soy.$$augmentMap(entityData475, {editEntity: editEntity}));
+    var entityList471 = contents;
+    var entityListLen471 = entityList471.length;
+    for (var entityIndex471 = 0; entityIndex471 < entityListLen471; entityIndex471++) {
+      var entityData471 = entityList471[entityIndex471];
+      output += windmill.templates.entityEditHtml(soy.$$augmentMap(entityData471, {editEntity: editEntity}));
     }
   }
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
@@ -708,8 +708,8 @@ windmill.templates.entityPlayHtml = function(opt_data, opt_ignored) {
   goog.asserts.assert(goog.isNumber(opt_data.type), "expected param 'type' of type number.");
   var type = /** @type {number} */ (opt_data.type);
   var output = '';
-  var entity__soy478 = {x: 100 * i, y: 100 * j, i: i, j: j, drawType: drawType, hasBend: hasBend};
-  output += (drawType == 2 && type == 3) ? windmill.templates.startHtml(entity__soy478) : '';
+  var entity__soy474 = {x: 100 * i, y: 100 * j, i: i, j: j, drawType: drawType, hasBend: hasBend};
+  output += (drawType == 2 && type == 3) ? windmill.templates.startHtml(entity__soy474) : '';
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
 };
 if (goog.DEBUG) {
@@ -739,8 +739,8 @@ windmill.templates.entityEditHtml = function(opt_data, opt_ignored) {
   var drawType = /** @type {number} */ (opt_data.drawType);
   var type = goog.asserts.assertNumber(opt_data.type, "expected parameter 'type' of type int.");
   var output = '';
-  var entity__soy483 = {x: 100 * i, y: 100 * j, i: i, j: j, drawType: drawType, highlight: true, alwaysRemove: opt_data.editEntity.type == 2};
-  var remove__soy484 = type == opt_data.editEntity.type;
+  var entity__soy479 = {x: 100 * i, y: 100 * j, i: i, j: j, drawType: drawType, highlight: true, alwaysRemove: opt_data.editEntity.type == 2};
+  var remove__soy480 = type == opt_data.editEntity.type;
   switch (drawType) {
     case 2:
       switch (opt_data.editEntity.type) {
@@ -749,7 +749,7 @@ windmill.templates.entityEditHtml = function(opt_data, opt_ignored) {
         case 6:
         case 1:
         case 4:
-          output += (opt_data.editEntity.type != 4 || opt_data.extras.endable) ? windmill.templates.overlayPointHtml(soy.$$augmentMap(entity__soy483, {small: type == 3, remove: remove__soy484})) : '';
+          output += (opt_data.editEntity.type != 4 || opt_data.extras.endable) ? windmill.templates.overlayPointHtml(soy.$$augmentMap(entity__soy479, {small: type == 3, remove: remove__soy480})) : '';
           break;
         default:
       }
@@ -758,17 +758,17 @@ windmill.templates.entityEditHtml = function(opt_data, opt_ignored) {
       switch (opt_data.editEntity.type) {
         case 7:
         case 8:
-          output += windmill.templates.overlayCellHtml(soy.$$augmentMap(entity__soy483, {remove: remove__soy484 && opt_data.editEntity.extras.color == opt_data.extras.color}));
+          output += windmill.templates.overlayCellHtml(soy.$$augmentMap(entity__soy479, {remove: remove__soy480 && opt_data.editEntity.extras.color == opt_data.extras.color}));
           break;
         case 9:
-          output += windmill.templates.overlayCellHtml(soy.$$augmentMap(entity__soy483, {remove: remove__soy484 && opt_data.editEntity.extras.shape && opt_data.editEntity.extras.shape.negative == opt_data.extras.shape.negative && opt_data.editEntity.extras.shape.free == opt_data.extras.shape.free && opt_data.editEntity.extras.shape.repr == opt_data.extras.shape.repr}));
+          output += windmill.templates.overlayCellHtml(soy.$$augmentMap(entity__soy479, {remove: remove__soy480 && opt_data.editEntity.extras.shape && opt_data.editEntity.extras.shape.negative == opt_data.extras.shape.negative && opt_data.editEntity.extras.shape.free == opt_data.extras.shape.free && opt_data.editEntity.extras.shape.repr == opt_data.extras.shape.repr}));
           break;
         case 11:
-          output += windmill.templates.overlayCellHtml(soy.$$augmentMap(entity__soy483, {remove: remove__soy484 && opt_data.editEntity.extras.count == opt_data.extras.count}));
+          output += windmill.templates.overlayCellHtml(soy.$$augmentMap(entity__soy479, {remove: remove__soy480 && opt_data.editEntity.extras.count == opt_data.extras.count}));
           break;
         case 2:
         case 10:
-          output += windmill.templates.overlayCellHtml(soy.$$augmentMap(entity__soy483, {remove: remove__soy484}));
+          output += windmill.templates.overlayCellHtml(soy.$$augmentMap(entity__soy479, {remove: remove__soy480}));
           break;
       }
       break;
@@ -779,7 +779,7 @@ windmill.templates.entityEditHtml = function(opt_data, opt_ignored) {
         case 2:
         case 5:
         case 6:
-          output += windmill.templates.overlayLineHtml(soy.$$augmentMap(entity__soy483, {remove: remove__soy484}));
+          output += windmill.templates.overlayLineHtml(soy.$$augmentMap(entity__soy479, {remove: remove__soy480}));
           break;
       }
       break;
@@ -808,17 +808,17 @@ windmill.templates.errorHtml = function(opt_data, opt_ignored) {
   var j = /** @type {number} */ (opt_data.j);
   var drawType = goog.asserts.assertNumber(opt_data.drawType, "expected parameter 'drawType' of type int.");
   var output = '';
-  var entity__soy515 = {x: 100 * i, y: 100 * j, i: i, j: j, drawType: drawType, error: true};
+  var entity__soy511 = {x: 100 * i, y: 100 * j, i: i, j: j, drawType: drawType, error: true};
   switch (drawType) {
     case 2:
-      output += windmill.templates.overlayPointHtml(soy.$$augmentMap(entity__soy515, {small: true}));
+      output += windmill.templates.overlayPointHtml(soy.$$augmentMap(entity__soy511, {small: true}));
       break;
     case 1:
-      output += windmill.templates.overlayCellHtml(entity__soy515);
+      output += windmill.templates.overlayCellHtml(entity__soy511);
       break;
     case 4:
     case 3:
-      output += windmill.templates.overlayLineHtml(entity__soy515);
+      output += windmill.templates.overlayLineHtml(entity__soy511);
       break;
   }
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
@@ -852,8 +852,8 @@ windmill.templates.overlayPointHtml = function(opt_data, opt_ignored) {
   goog.asserts.assert(opt_data.small == null || goog.isBoolean(opt_data.small) || opt_data.small === 1 || opt_data.small === 0, "expected param 'small' of type boolean|null|undefined.");
   var small = /** @type {boolean|null|undefined} */ (opt_data.small);
   var output = '';
-  var r__soy525 = small ? 10.0 : 20;
-  output += windmill.templates.overlayHtml(soy.$$augmentMap(opt_data, {attributes: soydata.VERY_UNSAFE.$$ordainSanitizedAttributesForInternalBlocks('style="left: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(x - r__soy525)) + 'px; top: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(y - r__soy525)) + 'px; width: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(r__soy525 * 2)) + 'px; height: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(r__soy525 * 2)) + 'px; z-index: 2;"')}));
+  var r__soy521 = small ? 10.0 : 20;
+  output += windmill.templates.overlayHtml(soy.$$augmentMap(opt_data, {attributes: soydata.VERY_UNSAFE.$$ordainSanitizedAttributesForInternalBlocks('style="left: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(x - r__soy521)) + 'px; top: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(y - r__soy521)) + 'px; width: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(r__soy521 * 2)) + 'px; height: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(r__soy521 * 2)) + 'px; z-index: 2;"')}));
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
 };
 if (goog.DEBUG) {
@@ -883,13 +883,13 @@ windmill.templates.overlayLineHtml = function(opt_data, opt_ignored) {
   var y = goog.asserts.assertNumber(opt_data.y, "expected parameter 'y' of type int.");
   var drawType = goog.asserts.assertNumber(opt_data.drawType, "expected parameter 'drawType' of type int.");
   var output = '';
-  var horizontal__soy538 = drawType == 3;
-  var vertical__soy539 = ! horizontal__soy538;
-  var longStart__soy540 = 10.0;
-  var shortStart__soy541 = -20;
-  var longLength__soy542 = 80;
-  var shortLength__soy543 = 40;
-  output += windmill.templates.overlayHtml(soy.$$augmentMap(opt_data, {attributes: soydata.VERY_UNSAFE.$$ordainSanitizedAttributesForInternalBlocks('style="left: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(x + (horizontal__soy538 ? longStart__soy540 : shortStart__soy541))) + 'px; top: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(y + (vertical__soy539 ? longStart__soy540 : shortStart__soy541))) + 'px; width: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(horizontal__soy538 ? longLength__soy542 : shortLength__soy543)) + 'px; height: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(vertical__soy539 ? longLength__soy542 : shortLength__soy543)) + 'px; z-index: 2;"')}));
+  var horizontal__soy534 = drawType == 3;
+  var vertical__soy535 = ! horizontal__soy534;
+  var longStart__soy536 = 10.0;
+  var shortStart__soy537 = -20;
+  var longLength__soy538 = 80;
+  var shortLength__soy539 = 40;
+  output += windmill.templates.overlayHtml(soy.$$augmentMap(opt_data, {attributes: soydata.VERY_UNSAFE.$$ordainSanitizedAttributesForInternalBlocks('style="left: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(x + (horizontal__soy534 ? longStart__soy536 : shortStart__soy537))) + 'px; top: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(y + (vertical__soy535 ? longStart__soy536 : shortStart__soy537))) + 'px; width: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(horizontal__soy534 ? longLength__soy538 : shortLength__soy539)) + 'px; height: ' + soy.$$escapeHtmlAttribute(soy.$$filterCssValue(vertical__soy535 ? longLength__soy538 : shortLength__soy539)) + 'px; z-index: 2;"')}));
   return soydata.VERY_UNSAFE.ordainSanitizedHtml(output);
 };
 if (goog.DEBUG) {

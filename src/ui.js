@@ -56,6 +56,20 @@ GridRenderer.prototype.renderContents = function(contents) {
     var svgEl = goog.asserts.assert(document.getElementById('grid'), 'grid');
     svgEl.setAttribute('width', this.getRenderWidth());
     svgEl.setAttribute('height', this.getRenderHeight());
+    console.log('setting SVG dimensions PHIL');
+
+    // // Set the zoom level of gridAll so the puzzle is always on the screen
+    // var gridWidth = this.getRenderWidth();
+    // var gridHeight = this.getRenderHeight();
+    // var winWidth = window.innerWidth;
+    // var winHeight = window.innerHeight;
+    // var zoomWidth = winWidth / gridWidth;
+    // var zoomHeight = winHeight / gridHeight;
+    // var zoom = Math.min(zoomWidth, zoomHeight);
+    //
+    // svgEl.setAttribute('width', window.innerWidth * zoom);
+    // svgEl.setAttribute('height', window.innerHeight * zoom);
+    // svgEl.setAttribute('viewBox', '0 0 ' + gridWidth + ' ' + gridHeight);
   }
 
   // TODO: Compute whether each segment turns left or right. If so, make it have rounded corners
@@ -186,6 +200,7 @@ GridUi.prototype.renderContents = function(contents) {
   var zoomHeight = winHeight / gridHeight;
   var zoom = Math.min(zoomWidth, zoomHeight);
   document.getElementById('gridAll').style.zoom = zoom;
+  // document.getElementById('gridAll').style.transform = 'scale(' + zoom + ')';
 
   this.renderer.renderContents(contents);
   // Now, set up the right event handlers.

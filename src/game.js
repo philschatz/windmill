@@ -372,7 +372,7 @@ window.addEventListener( "load", function() {
     gui = new windmill.GridUi(grid, uiHook);
     gui.render();
     // Change this to PUZZLES[index].n for development
-    // window.location.hash = PUZZLES[index].n;
+    window.location.hash = PUZZLES[index].n;
 
     windmill.Sound.playStartRipples();
   }
@@ -392,15 +392,15 @@ window.addEventListener( "load", function() {
   index = findPuzzle(window.location.hash.replace('#', ''));
 
   // Screensaver mode: Show different puzzles randomly (after 10min of inactivity?)
-  setInterval(function() {
-    index = Math.round(Math.random() * PUZZLES.length);
-    // if (PUZZLES[index]) {
-    //   index++;
-    // } else {
-    //   index = 0;
-    // }
-    startLevel();
-  }, 5000)
-  // startLevel();
+  // setInterval(function() {
+  //   index = Math.round(Math.random() * PUZZLES.length);
+  //   // if (PUZZLES[index]) {
+  //   //   index++;
+  //   // } else {
+  //   //   index = 0;
+  //   // }
+  //   startLevel();
+  // }, 5000)
+  startLevel();
 
 });

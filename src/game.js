@@ -27,59 +27,59 @@ window.addEventListener( "load", function() {
     // {n:'y-tetris-quary22-all-stars', theme:'quary', c:'CAsSAigKEggIBBoECAIQABIAEgQICBABEgASBAgIEAESABIECAgQBhIAEgQICBAGEgIoDxIECAgQAhIAEgQICBACEgASBAgIEAcSABIECAgQBxICKA8SBAgIEAMSABIECAgQAxIAEgQICBAIEgASBAgIEAgSAigPEgQICBAEEgASBAgIEAQSABIECAgQCRIAEgQICBAJEgIoDxIECAgQBRIAEgQICBAFEgIoBxICCAMSAigK_0'},
 
 
-    {n:'start', theme:'orange', c:'CAcSAggDEgIoAxICCAESAggBEgIIBBICCAESABICCAESABICCAESAigDEgIIARIAEgIIARICCAESAggBEgASAggBEgASAggBEgASAggBEgIoAxICCAESABICCAESABICCAESAggD_0'},
+    {n:'start', theme:'orange', c:'CAcSAggDEgIoAxICCAESAggBEgIIBBICCAESABICCAESABICCAESAigDEgIIARIAEgIIARICCAESAggBEgASAggBEgASAggBEgASAggBEgIoAxICCAESABICCAESABICCAESAggD_0', hint:'Rounded lines with ripples are the goal'},
     // {n:'start', theme:'orange', c:'CAMSAggEEgIoAhICCAESAigDEgIIARIAEgIIARICKAISAggBEgIIARICCAM=_0'},
 
     {n:'maze-simple', theme:'orange', c:'CAkSAigDEgIIARIAEgIIARICKAISAggEEgIIARICKAcSAggBEgIoBRICCAESAigFEgIIARICKAMSAggBEgIoAxICCAESAigLEgIIARIAEgIIARIAEgIIARICKAsSAggBEgIoBRICCAESAggDEgIoBBICCAESAigD_0'}, // 4x4
     {n:'maze-medium', theme:'orange', c:'CA0SAigEEgIIBBICCAESAigDEgIIARICKAUSAggBEgIoCxICCAESABICCAESAigDEgIIARICKAMSAggBEgIoBRICCAESABICCAESABICCAESABICCAESAigDEgIIARICKAMSAggBEgIoDRICCAESAigDEgIIARICKAMSAggBEgASAggBEgIoBRICCAESABICCAESABICCAESAigFEgIIARIAEgIIARICKAcSAggBEgIoBBICCAMSAigCEgIIARIAEgIIARICKAMSAggBEgIoBxICCAESABICCAESABICCAESABICCAESAigJEgIIARICKAMSAggBEgASAggBEgASAggBEgIoDw==_0'}, // 6x6
-    {n:'maze-2starts', theme:'orange', c:'CA0SABICCAUSAigDEgIIBRICCAQSAggFEgIoDRICCAUSABICCAUSAigDEgIIBRICKAUSAggFEgIoCRICCAUSABICCAUSAigFEgIIBRIAEgIIBRICKAMSAggFEgIoAxICCAUSAigFEgIIBRICKAUSAggFEgASAggFEgIoBRICCAUSAigDEgIIBRICKAkSAggFEgASAggFEgIoBRICCAUSAigHEgIIBRIAEgIIBRICKAUSAggFEgIoBRICCAUSABICCAUSAigFEgIIBRICKAUSAggFEgIoEBICCAMSAigEEgIIBRICKAMSAggFEgIoAhICCAM=_0'},
+    {n:'maze-2starts', theme:'orange', c:'CA0SABICCAUSAigDEgIIBRICCAQSAggFEgIoDRICCAUSABICCAUSAigDEgIIBRICKAUSAggFEgIoCRICCAUSABICCAUSAigFEgIIBRIAEgIIBRICKAMSAggFEgIoAxICCAUSAigFEgIIBRICKAUSAggFEgASAggFEgIoBRICCAUSAigDEgIIBRICKAkSAggFEgASAggFEgIoBRICCAUSAigHEgIIBRIAEgIIBRICKAUSAggFEgIoBRICCAUSABICCAUSAigFEgIIBRICKAUSAggFEgIoEBICCAMSAigEEgIIBRICKAMSAggFEgIoAhICCAM=_0', hint:'there are multiple ways to start; choose the one that leads to the end'},
     {n:'maze-large', theme:'orange', c:'CBUSAigLEgIIARICKAUSAggBEgIoAhICCAQSAggBEgIoAxICCAESABICCAESAigDEgIIARICKAMSAggBEgASAggBEgIoBRICCAESABICCAESAigDEgIIARIAEgIIARICKAkSAggBEgIoBxICCAESAigFEgIIARIAEgIIARIAEgIIARICKAMSAggBEgIoAxICCAESABICCAESAigDEgIIARIAEgIIARICKAMSAggBEgIoAxICCAESAggBEgIoAhICCAESAigDEgIIARIAEgIIARICKAUSAggBEgIoAxICCAESAigFEgIIARICKAcSAggBEgIoAxICCAESAigEEgIIARICKAQSAggBEgASAggBEgASAggBEgASAggBEgASAggBEgIoAxICCAESAigDEgIIARIAEgIIARIAEgIIARICKAcSAggBEgIoAxICCAESAigDEgIIARIAEgIIARICKAUSAggBEgASAggBEgIoCRICCAESAigFEgIIARIAEgIIARICKAMSAggBEgIoBRICCAESABICCAESAigJEgIIARICKAUSAggBEgASAggBEgIoCRICCAESAigFEgIIARICKAcSAggBEgASAggBEgIoAxICCAESABICCAESAigHEgIIARIAEgIIARIAEgIIARICKAMSAggBEgASAggBEgIoAxICCAESABICCAESABICCAESAigFEgIIARICKA8SAggBEgASAggBEgIoCRICCAESABICCAESAigDEgIIARIAEgIIARIAEgIIARICKAUSAggBEgIoBxICCAESABICCAESAigHEgIIARICKAMSAggBEgASAggBEgIoAxICCAESAigDEgIIARIAEgIIARICKAUSAggBEgIIARICKAISAggBEgIoAxICCAESABICCAESAigFEgIIARIAEgIIARICKAgSAggDEgIoBhICCAESAigHEgIIARICKAU=_0'}, // 10x10
 
 
 
     // bw teaching section
-    {n:'bw1', theme:'blue', c:'CAMSAigEEgQIBxABEgASAggDEgASAggEEgASBAgHEAISAigE_0'}, // bw intro 1x2
-    {n:'bw2', theme:'blue', c:'CAMSAigCEgIIBBIAEgQIBxABEgIoBRIECAcQAhIAEgIIAxICKAI=_0'}, // bw intro 1x2
+    {n:'bw1', theme:'blue', c:'CAMSAigEEgQIBxABEgASAggDEgASAggEEgASBAgHEAISAigE_0', hint:'try all the options'}, // bw intro 1x2
+    {n:'bw2', theme:'blue', c:'CAMSAigCEgIIBBIAEgQIBxABEgIoBRIECAcQAhIAEgIIAxICKAI=_0', hint:'try all the options again'}, // bw intro 1x2
     {n:'bw3', theme:'blue', c:'CAMSAigCEgIIBBIAEgQIBxABEgIoBRIECAcQARICKAUSBAgHEAISABICCAMSAigC_0'}, // bw intro 1x3
     // 'CAMSAigCEgIIBBIAEgQIBxABEgIoBRIECAcQAhICKAUSBAgHEAESABICCAMSAigC_0', // bw intro 1x3 (middle)
     {n:'bw4', theme:'blue', c:'CAUSAigEEgIIBBIAEgQIBxABEgASBAgHEAESAigHEgQIBxABEgASBAgHEAISABICCAMSAigE_0'}, // bw intro 2x2
-    {n:'bw5', theme:'blue', c:'CAcSAigGEgIIBBIAEgQIBxABEgASBAgHEAESABIECAcQARICKAkSBAgHEAESABIECAcQAhIAEgQIBxABEgIoCRIECAcQAhIAEgQIBxACEgASBAgHEAISABICCAMSAigG_0'}, // bw intro 3x3
-    {n:'bw6', theme:'blue', c:'CAcSAigIEgQIBxABEgASBAgHEAESABIECAcQARICKAkSBAgHEAESABIECAcQAhIAEgQIBxABEgASAggEEgIoBxIECAcQAhIAEgQIBxACEgASBAgHEAISABICCAMSAigG_0'}, // bw intro 3x3
-    {n:'bw7', theme:'blue', c:'CAkSAigCEgIIBBICKAcSBAgHEAESAigDEgQIBxACEgASBAgHEAESAigLEgQIBxABEgASBAgHEAESABIECAcQARIAEgQIBxABEgIoCxIECAcQARIAEgQIBxACEgASBAgHEAESABIECAcQARICKAsSBAgHEAISABIECAcQAhIAEgQIBxACEgASBAgHEAESABICCAMSAigI_0'}, // bw intro 4x4
+    {n:'bw5', theme:'blue', c:'CAcSAigGEgIIBBIAEgQIBxABEgASBAgHEAESABIECAcQARICKAkSBAgHEAESABIECAcQAhIAEgQIBxABEgIoCRIECAcQAhIAEgQIBxACEgASBAgHEAISABICCAMSAigG_0', hint:'group similar squares together'}, // bw intro 3x3
+    {n:'bw6', theme:'blue', c:'CAcSAigIEgQIBxABEgASBAgHEAESABIECAcQARICKAkSBAgHEAESABIECAcQAhIAEgQIBxABEgASAggEEgIoBxIECAcQAhIAEgQIBxACEgASBAgHEAISABICCAMSAigG_0', hint:'there is more than one way to group squares; the border can be your ally'}, // bw intro 3x3
+    {n:'bw7', theme:'blue', c:'CAkSAigCEgIIBBICKAcSBAgHEAESAigDEgQIBxACEgASBAgHEAESAigLEgQIBxABEgASBAgHEAESABIECAcQARIAEgQIBxABEgIoCxIECAcQARIAEgQIBxACEgASBAgHEAESABIECAcQARICKAsSBAgHEAISABIECAcQAhIAEgQIBxACEgASBAgHEAESABICCAMSAigI_0', hint:'use the border in a different way than before'}, // bw intro 4x4
     {n:'bw8', theme:'blue', c:'CAkSAigKEgQIBxABEgASBAgHEAESABIECAcQAhIAEgQIBxABEgIoDRIECAcQARIAEgQIBxABEgASBAgHEAESAigJEgIIBBIAEgQIBxABEgASBAgHEAISABIECAcQARIAEgQIBxABEgIoCxIECAcQAhIAEgQIBxACEgASBAgHEAISABIECAcQARIAEgIIAxICKAg=_0'}, // bw intro 4x4
-    {n:'bw9', theme:'blue', c:'CAkSAigMEgQIBxABEgASBAgHEAISABIECAcQARICKAsSBAgHEAESAigFEgQIBxABEgIoCxIECAcQARIAEgQIBxACEgASBAgHEAESAigNEgQIBxACEgASBAgHEAISABIECAcQAhIAEgQIBxABEgASAggDEgIoBRICCAQSAigC_0'}, // bw 4x4 (group-white)
+    {n:'bw9', theme:'blue', c:'CAkSAigMEgQIBxABEgASBAgHEAISABIECAcQARICKAsSBAgHEAESAigFEgQIBxABEgIoCxIECAcQARIAEgQIBxACEgASBAgHEAESAigNEgQIBxACEgASBAgHEAISABIECAcQAhIAEgQIBxABEgASAggDEgIoBRICCAQSAigC_0', hint:'you can group the same color together into one clump'}, // bw 4x4 (group-white)
 
 
-    {n:'bw-quary-octagon', theme:'blue', c:'CAkSAigIEgIIBBIAEgQIBxACEgASBAgHEAESABIECAcQARIAEgQIBxACEgIoCxIECAcQARIAEgQIBxABEgASBAgHEAESABIECAcQARICKAsSBAgHEAESABIECAcQARIAEgQIBxABEgASBAgHEAESAigLEgQIBxACEgASBAgHEAESABIECAcQARIAEgQIBxACEgASAggDEgIoCA==_0'},
+    {n:'bw-quary-octagon', theme:'blue', c:'CAkSAigIEgIIBBIAEgQIBxACEgASBAgHEAESABIECAcQARIAEgQIBxACEgIoCxIECAcQARIAEgQIBxABEgASBAgHEAESABIECAcQARICKAsSBAgHEAESABIECAcQARIAEgQIBxABEgASBAgHEAESAigLEgQIBxACEgASBAgHEAESABIECAcQARIAEgQIBxACEgASAggDEgIoCA==_0', hint:'you can section off corners. also, you do not have to keep all of the same color together; you can still draw a line in the middle.'},
 
-    {n:'bw-quary-octagon2', theme:'blue', c:'CAkSAggDEgIoAxICCAQSAigFEgQIBxACEgASBAgHEAESABIECAcQARIAEgQIBxACEgIoCxIECAcQARIAEgQIBxABEgASBAgHEAESABIECAcQARICKAsSBAgHEAESABIECAcQARIAEgQIBxABEgASBAgHEAESAigLEgQIBxACEgASBAgHEAESABIECAcQARICKAcSAggEEgIoAxICCAM=_0'},
+    {n:'bw-quary-octagon2', theme:'blue', c:'CAkSAggDEgIoAxICCAQSAigFEgQIBxACEgASBAgHEAESABIECAcQARIAEgQIBxACEgIoCxIECAcQARIAEgQIBxABEgASBAgHEAESABIECAcQARICKAsSBAgHEAESABIECAcQARIAEgQIBxABEgASBAgHEAESAigLEgQIBxACEgASBAgHEAESABIECAcQARICKAcSAggEEgIoAxICCAM=_0', hint:'start top-left and make your way around counter-clockwise'},
 
     // dot teaching section
     // {n:'dot1', theme:'light-green', c:'CAUSAigEEgIIBBICKAISAggGEgASAggGEgIoChICCAMSAigE_0'}, // dot 2x2
-    {n:'dot1', theme:'light-green', c:'CAUSAggGEgIoAxICCAQSAigPEgIIAxICKAMSAggG_0'}, // dot 2x2
+    {n:'dot1', theme:'light-green', c:'CAUSAggGEgIoAxICCAQSAigPEgIIAxICKAMSAggG_0', hint:'collect all the dots'}, // dot 2x2
 
-    {n:'dot2', theme:'light-green', c:'CAcSABICCAESAggGEgIoAxICCAQSAggBEgIoChICCAYSAggBEgIoCBICCAYSABICCAYSAigIEgIIARICKAISAggDEgIoBRICCAY=_0'}, // dot 3x3
-    {n:'dot3', theme:'light-green', c:'CAcSABICCAESAggGEgIoAxICCAQSAggBEgIoCRICCAESAggGEgIIARICKAgSAggGEgASAggGEgIoCBICCAESAigCEgIIAxICKAUSAggG_0'}, // dot 3x3
-    {n:'dot4', theme:'light-green', c:'CAcSABICCAESAggGEgIoBBICCAESAigGEgIIBBIAEgIIAxIAEgIIBhICCAESAigIEgIIBhIAEgIIBhIAEgIIAxICKAYSAggBEgIoCBICCAY=_0'}, // dot 3x3 (2starts)
-    {n:'dot5', theme:'light-green', c:'CAcSABICCAESAggGEgASAggDEgASAggDEgIIARICKAYSAggEEgIoAxICCAYSAggBEgIIBhICKAcSAggGEgASAggGEgIoAxICCAMSAigEEgIIARICKAgSAggG_0'}, // dot 3x3 (3 starts)
+    {n:'dot2', theme:'light-green', c:'CAcSABICCAESAggGEgIoAxICCAQSAggBEgIoChICCAYSAggBEgIoCBICCAYSABICCAYSAigIEgIIARICKAISAggDEgIoBRICCAY=_0', hint:'grab the bottom ones before the top ones'}, // dot 3x3
+    {n:'dot3', theme:'light-green', c:'CAcSABICCAESAggGEgIoAxICCAQSAggBEgIoCRICCAESAggGEgIIARICKAgSAggGEgASAggGEgIoCBICCAESAigCEgIIAxICKAUSAggG_0', hint:'go top-left first'}, // dot 3x3
+    {n:'dot4', theme:'light-green', c:'CAcSABICCAESAggGEgIoBBICCAESAigGEgIIBBIAEgIIAxIAEgIIBhICCAESAigIEgIIBhIAEgIIBhIAEgIIAxICKAYSAggBEgIoCBICCAY=_0', hint:'start bottom-right and spiral clockwise'}, // dot 3x3 (2starts)
+    {n:'dot5', theme:'light-green', c:'CAcSABICCAESAggGEgASAggDEgASAggDEgIIARICKAYSAggEEgIoAxICCAYSAggBEgIIBhICKAcSAggGEgASAggGEgIoAxICCAMSAigEEgIIARICKAgSAggG_0', hint:'start top-right corner'}, // dot 3x3 (3 starts)
 
-    {n:'windmill', theme:'light-green', c:'CAsSAigFEgIIBhICKBMSAggFEgIoAxICCAUSAigDEgIIBRIAEgIIBRICKAUSAggFEgASAggFEgIoCxICCAYSAigJEgIIBhICKAsSAggFEgASAggFEgIoBRICCAUSABICCAUSAigDEgIIBRICKAMSAggFEgIoEhICCAMSABICCAQSAigE_0'}, // 5x5
+    {n:'windmill', theme:'light-green', c:'CAsSAigFEgIIBhICKBMSAggFEgIoAxICCAUSAigDEgIIBRIAEgIIBRICKAUSAggFEgASAggFEgIoCxICCAYSAigJEgIIBhICKAsSAggFEgASAggFEgIoBRICCAUSABICCAUSAigDEgIIBRICKAMSAggFEgIoEhICCAMSABICCAQSAigE_0', hint:'windmill'}, // 5x5
 
     {n:'dot-quary-quary', theme:'light-green', c:'CAsSAigDEgIIBhICKAISAggEEgIIARIAEgIIARICCAESAigIEgIIARIAEgIIARICKAcSAggBEgASAggBEgASAggGEgIoBRICCAYSABICCAESABICCAESAigKEgIIBhICKAsSAggGEgASAggGEgASAggGEgIoBhICCAESABICCAESAigHEgIIBhIAEgIIARIAEgIIARICCAYSAigGEgIIARIAEgIIARICKAkSAggBEgASAggBEgIIAxICKAMSAggGEgIoAg==_0'},
 
-    {n:'bw-dot-goboard', theme:'default', c:'CA8SAggEEgIoDBICCAYSAggEEgASBAgHEAESABIECAcQAhICKAcSBAgHEAESABIECAcQAhICCAYSAigQEgQIBxACEgIoBRIECAcQARIAEgQIBxABEgIoDRICCAMSAigNEgQIBxACEgASBAgHEAISAigiEgIIBhICKAwSAggDEgIIBhICKAYSBAgHEAESAigMEgIIBhICCAMSAigPEgQIBxACEgIoBxIECAcQARICKBASAggGEgIoChIECAcQAhIAEgQIBxABEgASAggDEgIIBhICKAkSAggGEgIoAhICCAQ=_0'},
+    {n:'bw-dot-goboard', theme:'default', c:'CA8SAggEEgIoDBICCAYSAggEEgASBAgHEAESABIECAcQAhICKAcSBAgHEAESABIECAcQAhICCAYSAigQEgQIBxACEgIoBRIECAcQARIAEgQIBxABEgIoDRICCAMSAigNEgQIBxACEgASBAgHEAISAigiEgIIBhICKAwSAggDEgIIBhICKAYSBAgHEAESAigMEgIIBhICCAMSAigPEgQIBxACEgIoBxIECAcQARICKBASAggGEgIoChIECAcQAhIAEgQIBxABEgASAggDEgIIBhICKAkSAggGEgIoAhICCAQ=_0', hints:['start at the right-most', 'group all of one color in the middle']},
 
     // symmetry teaching section (Waterside)
     {n:'symmetry1', theme:'blue-green', c:'CAcSAigCEgIIBBIAEgIIBBICKCUSAggDEgIoBRICCAMYAg==_0'},
     {n:'symmetry2', theme:'blue-green', c:'CAcSAigCEgIIBBIAEgIIBBICKBASAggFEgIoBRICCAUSAigJEgIIBRIAEgIIBRICKAISAggDEgIoBRICCAMYAg==_0'},
     {n:'symmetry3', theme:'blue-green', c:'CAkSAigCEgIIBBICKAMSAggEEgIoChICCAUSAigLEgIIBRICKBUSAggFEgIoCxICCAUSAigIEgIIAxICKAcSAggDGAI=_0'},
     // {n:'symmetry', theme:'blue-green', c:'CAsSAigEEgIIBBIAEgIIBBICCAUSAigdEgIIBRICKAUSAggFEgIoDRICCAUSAigVEgIIBRICKAMSAggFEgIoFxICCAUSABICCAUSAigCEgIIAxICCAUSAigEEgIIAxICKAISAggFEgIoFRgC_0'},
-    {n:'symmetry4', theme:'blue-green', c:'CAsSAigDEgIIBRICCAQSABICCAQSAigaEgIIBRICKAMSAggFEgIoGRICCAUSABICCAUSAigTEgIIBRICKAkSAggFEgIoCRICCAUSAigNEgIIBRICKAMSAggFEgIoCRICCAUSAigNEgIIBRICKAcSAggFEgASAggFEgIoBxICCAUSAigMEgIIAxICKAUSAggDEgIoAhgC_0'},
+    {n:'symmetry4', theme:'blue-green', c:'CAsSAigDEgIIBRICCAQSABICCAQSAigaEgIIBRICKAMSAggFEgIoGRICCAUSABICCAUSAigTEgIIBRICKAkSAggFEgIoCRICCAUSAigNEgIIBRICKAMSAggFEgIoCRICCAUSAigNEgIIBRICKAcSAggFEgASAggFEgIoBxICCAUSAigMEgIIAxICKAUSAggDEgIoAhgC_0', hint:'look at both sides when drawing the line'},
     // Skipping one because it has 2 exits and is long: https://youtu.be/Z6CJZu6omGs?t=5m9s
     {n:'symmetry-rotational', theme:'blue-white', c:'CAcSAigEEgIIBBICCAUSAggDEgIoBBICCAUSAigZEgIIBRICKAQSAggDEgIIBRICCAQSAigEGAQ=_0'},
     {n:'symmetry-rotational2', theme:'blue-green', c:'CAcSAigEEgIIBBICCAUSAggDEgIoEhICCAUSAigDEgIIBRICKAwSAggDEgASAggEEgIoAhICCAUSABgE_0'},
-    {n:'symmetry-rotational3', theme:'blue-green', c:'CAkSAggEEgIoBxICCAMSAigEEgIIBRICKAUSAggFEgIoDxICCAUSAigPEgIIBRICKAMSAggFEgIoCRICCAUSAigGEgIIAxICKAYSAggFEgIIBBgE_0'},
-    {n:'symmetry-rotational4', theme:'blue-green', c:'CA0SAggEEgIoCxICCAMSAggFEgIoAxICCAUSAigPEgIIBRICKAcSAggFEgIoBxICCAUSAigFEgIIBRICKB8SAggFEgIoBRICCAUSAigPEgIIBRICKAsSAggFEgIoBxICCAUSABICCAUSAigFEgIIBRICKA8SAggFEgIoAhICCAMSAigEEgIIBRICKAYSAggEGAQ=_0'},
+    {n:'symmetry-rotational3', theme:'blue-green', c:'CAkSAggEEgIoBxICCAMSAigEEgIIBRICKAUSAggFEgIoDxICCAUSAigPEgIIBRICKAMSAggFEgIoCRICCAUSAigGEgIIAxICKAYSAggFEgIIBBgE_0', hint:'move right a lot and then work your way left (if starting from the bottom-left)'},
+    {n:'symmetry-rotational4', theme:'blue-green', c:'CA0SAggEEgIoCxICCAMSAggFEgIoAxICCAUSAigPEgIIBRICKAcSAggFEgIoBxICCAUSAigFEgIIBRICKB8SAggFEgIoBRICCAUSAigPEgIIBRICKAsSAggFEgIoBxICCAUSABICCAUSAigFEgIIBRICKA8SAggFEgIoAhICCAMSAigEEgIIBRICKAYSAggEGAQ=_0', hint:'up 2 right 2 up 2'},
     {n:'symmetry-rotational5', theme:'blue-green', c:'CA0SAggEEgIoCxICCAMSAggFEgASAggFEgASAggFEgIoDRICCAUSAigHEgIIBRIAEgIIBRICKA0SAggFEgIoGRICCAUSAigLEgIIBRICKA8SAggFEgIoCRICCAUSABICCAUSAigJEgIIBRICKAMSAggFEgIoFBICCAMSAigEEgIIBRICKAYSAggEGAQ=_0'},
 
 
@@ -91,41 +91,41 @@ window.addEventListener( "load", function() {
     // Swamp
 
     // tetris teaching section
-    {n:'tetris1', theme:'brown', c:'CAMSAigCEgIIBBICKAcSCQgJIgUIARIBARIAEgIIAxICKAI=_0'}, // tetris 1x2
-    {n:'tetris2', theme:'brown', c:'CAMSAigCEgIIBBICKA0SCQgJIgUIARIBARIAEgIIAxICKAI=_0'}, // tetris 1x3
-    {n:'tetris3', theme:'brown', c:'CAMSAigCEgIIBBICKA0SCggJIgYIARICAQESABICCAMSAigC_0'}, // tetris 1x3
-    {n:'tetris4', theme:'brown', c:'CAUSAigEEgIIBBICKAsSDAgJIggIAhIEAQABARICKAMSAggDEgIoBA==_0'}, // tetris 2x2
+    {n:'tetris1', theme:'brown', c:'CAMSAigCEgIIBBICKAcSCQgJIgUIARIBARIAEgIIAxICKAI=_0', hint:'try all possibilities'}, // tetris 1x2
+    {n:'tetris2', theme:'brown', c:'CAMSAigCEgIIBBICKA0SCQgJIgUIARIBARIAEgIIAxICKAI=_0', hint:'try all possibilities'}, // tetris 1x3
+    {n:'tetris3', theme:'brown', c:'CAMSAigCEgIIBBICKA0SCggJIgYIARICAQESABICCAMSAigC_0', hint:'the yellow squares make a shape, make it too'}, // tetris 1x3
+    {n:'tetris4', theme:'brown', c:'CAUSAigEEgIIBBICKAsSDAgJIggIAhIEAQABARICKAMSAggDEgIoBA==_0', hint:'the yellow squares make a shape, make it too'}, // tetris 2x2
 
-    {n:'tetris5', theme:'brown', c:'CAcSAigGEgIIBBICKAwSAggFEgIoBBIMCAkiCAgCEgQBAQEBEgIoBhICCAUSAigKEgIIAxICKAQSAggFEgA=_0'}, // tetris 3x3 (square)
+    {n:'tetris5', theme:'brown', c:'CAcSAigGEgIIBBICKAwSAggFEgIoBBIMCAkiCAgCEgQBAQEBEgIoBhICCAUSAigKEgIIAxICKAQSAggFEgA=_0', hint:'ensure the shape you make contains only the yellow shape'}, // tetris 3x3 (square)
     {n:'tetris6', theme:'brown', c:'CAsSAigKEggIBBoECAIQABICKAQSAggFEgIoAxICCAUSABICCAUSAighEgIIBRICKAQSDggJIgoIAhIGAQEBAAEAEgIoHhICCAUSAigSEgIIAxICKAgSAggFEgA=_0'}, // 5x5 (L)
 
     // 2-piece tutorial
     {n:'tetris2piece1', theme:'brown', c:'CAMSAigCEgIIBBICKAcSCQgJIgUIARIBARICCAUSAigDEgIIBRIJCAkiBQgBEgEBEgASAggDEgIoAg==_0'}, // 1x3
     {n:'tetris2piece2', theme:'brown', c:'CAMSAigCEgIIBBICKAcSCQgJIgUIARIBARICKAISAggFEgIoAhIJCAkiBQgBEgEBEgASAggDEgIoAg==_0'}, // 1x3
-    {n:'tetris2piece3', theme:'brown', c:'CAUSAigEEgIIBBICKA0SCQgJIgUIARIBARICKAcSDAgJIggIAhIEAQABARICKAMSAggDEgIoBA==_0'}, // 2x3
+    {n:'tetris2piece3', theme:'brown', c:'CAUSAigEEgIIBBICKA0SCQgJIgUIARIBARICKAcSDAgJIggIAhIEAQABARICKAMSAggDEgIoBA==_0', hints:['see previous puzzle', 'you can combine yellow squares into a bigger shape when you enclose them', 'make a square, which would be the same as combining the L and the single dot']}, // 2x3
     {n:'tetris2piece4', theme:'brown', c:'CAcSAigGEgIIBBIAEgoICSIGCAISAgEBEgIoGxIMCAkiCAgCEgQBAQEBEgIoBRICCAMSAigG_0'}, // 3x3 square-and-2
     {n:'tetris2piece5', theme:'brown', c:'CAcSAigGEgIIBBICKAMSCggJIgYIAhICAQESAigZEgwICSIICAISBAEBAQESAigFEgIIAxICKAY=_0'}, // 3x3 square-and-2-part2
-    {n:'tetris2piece6', theme:'brown', c:'CAcSAigGEgIIBBICKB0SDAgJIggIAhIEAQEBARIAEgoICSIGCAISAgEBEgIoAxICCAMSAigG_0'}, // 3x3 square-and-2-part3
-    {n:'tetris2piece7', theme:'brown', c:'CAcSAigGEgIIBBICKA8SDAgJIggIAhIEAQEBARIAEgsICSIHCAMSAwEBARICKBESAggDEgIoBg==_0'}, // 3x3 square-and-3
+    {n:'tetris2piece6', theme:'brown', c:'CAcSAigGEgIIBBICKB0SDAgJIggIAhIEAQEBARIAEgoICSIGCAISAgEBEgIoAxICCAMSAigG_0', hints:['where the yellow squares are does not matter too much as long as they are contained', 'draw the same shape as the previous puzzle']}, // 3x3 square-and-2-part3
+    {n:'tetris2piece7', theme:'brown', c:'CAcSAigGEgIIBBICKA8SDAgJIggIAhIEAQEBARIAEgsICSIHCAMSAwEBARICKBESAggDEgIoBg==_0', hint:'the exact placement of the yellow squares does not matter too much; if they are in the same group then they can actually be anywhere in the group'}, // 3x3 square-and-3
     {n:'tetris2piece8', theme:'brown', c:'CAcSAigGEgIIBBIAEgoICSIGCAISAgEBEgIoHxIMCAkiCAgCEgQBAQEBEgASAggDEgIoBg==_0'}, // 4x4 square-and-2-part3
 
 
 
-    {n:'tetris-red1', theme:'dark-red', c:'CAkSAigIEgIIBBICKBMSDAgJIggIBBIEAQEBARICKAQSAggFEgIoIBILCAkiBwgBEgMBAQESABILCAkiBwgBEgMBAQESAigDEgIIAxICKAg=_0'}, // 4x4
-    {n:'tetris-red2', theme:'dark-red', c:'CAkSAigIEgIIBBICKBMSDAgJIggIBBIEAQEBARICKAISAggFEgIoIhILCAkiBwgBEgMBAQESABILCAkiBwgBEgMBAQESAigDEgIIAxICKAg=_0'}, // 4x4
-    {n:'tetris-red3', theme:'dark-red', c:'CAsSAigKEggIBBoECAIQABICKAkSDAgJIggIARIEAQEBARICKCcSCQgJIgUIARIBARICKCsSCggJIgYIAhICAQESAigFEgIIAxICKAo=_0'}, // 5x5
-    {n:'tetris-red-corners', theme:'dark-red', c:'CAsSAigKEggIBBoECAIQABIAEg4ICSIKCAMSBgEBAQAAARICKAcSCggJIgYIAhICAQESAihREgsICSIHCAESAwEBARICKAUSCwgJIgcIAxIDAQEBEgASAggDEgIoCg==_0'}, // 5x5
+    {n:'tetris-red1', theme:'dark-red', c:'CAkSAigIEgIIBBICKBMSDAgJIggIBBIEAQEBARICKAQSAggFEgIoIBILCAkiBwgBEgMBAQESABILCAkiBwgBEgMBAQESAigDEgIIAxICKAg=_0', hints:['mentally move the horizonal piece to the bottom', '(but make sure you contain all the other pieces)', 'go up along the border all the way to the top first']}, // 4x4
+    {n:'tetris-red2', theme:'dark-red', c:'CAkSAigIEgIIBBICKBMSDAgJIggIBBIEAQEBARICKAISAggFEgIoIhILCAkiBwgBEgMBAQESABILCAkiBwgBEgMBAQESAigDEgIIAxICKAg=_0', hint:'make a great big U'}, // 4x4
+    {n:'tetris-red3', theme:'dark-red', c:'CAsSAigKEggIBBoECAIQABICKAkSDAgJIggIARIEAQEBARICKCcSCQgJIgUIARIBARICKCsSCggJIgYIAhICAQESAigFEgIIAxICKAo=_0', hints:['combine all the yellow squares into 1 group', 'start by going up alon the border']}, // 5x5
+    {n:'tetris-red-corners', theme:'dark-red', c:'CAsSAigKEggIBBoECAIQABIAEg4ICSIKCAMSBgEBAQAAARICKAcSCggJIgYIAhICAQESAihREgsICSIHCAESAwEBARICKAUSCwgJIgcIAxIDAQEBEgASAggDEgIoCg==_0', hints:['clump the bottom pieces together', 'and the top pieces together', 'but the top pieces do not have to be in the same order']}, // 5x5
 
-    {n:'tetris-optional1', theme:'brown', c:'CAsSAigKEggIBBoECAIQABIAEg4ICSIKCAMSBgEAAAEBARICKAcSDAgJIggIARIEAQEBARICKE8SDggJIgoIAxIGAQEBAQAAEgIoCRICCAMSAigK_0'}, // 5x5
-    {n:'tetris-optional1-squished', theme:'brown', c:'CAkSAigIEgIIBBIAEg4ICSIKCAMSBgEAAAEBARICKAUSDAgJIggIARIEAQEBARICKC8SDggJIgoIAxIGAQEBAQAAEgIoBxICCAMSAigI_0'}, // 4x4
+    {n:'tetris-optional1', theme:'brown', c:'CAsSAigKEggIBBoECAIQABIAEg4ICSIKCAMSBgEAAAEBARICKAcSDAgJIggIARIEAQEBARICKE8SDggJIgoIAxIGAQEBAQAAEgIoCRICCAMSAigK_0', hint:'outline the left pieces first'}, // 5x5
+    {n:'tetris-optional1-squished', theme:'brown', c:'CAkSAigIEgIIBBIAEg4ICSIKCAMSBgEAAAEBARICKAUSDAgJIggIARIEAQEBARICKC8SDggJIgoIAxIGAQEBAQAAEgIoBxICCAMSAigI_0', hints:['mentally flip the left top & bottom pieces so you can outline them', 'and mentally shift the vertical piece to the left', 'the only pieces not outlined should be a 2x2 square in the middle-right']}, // 4x4
 
-    {n:'tetris-just-tetris-pieces', theme:'brown', c:'CAsSAigKEgIIBBICKAMSDggJIgoIAxIGAQEBAAABEgIoKxIMCAkiCAgCEgQBAQEBEgIoAxIOCAkiCggCEgYBAAEBAAESABIMCAkiCAgBEgQBAQEBEgIoDRIOCAkiCggDEgYBAQEBAAASAigtEg4ICSIKCAMSBgABAAEBARICKAMSDggJIgoIAxIGAQEAAAEBEgIoAxICCAMSAigK_0'}, // 5x6 just-tetris-pieces
+    {n:'tetris-just-tetris-pieces', theme:'brown', c:'CAsSAigKEgIIBBICKAMSDggJIgoIAxIGAQEBAAABEgIoKxIMCAkiCAgCEgQBAQEBEgIoAxIOCAkiCggCEgYBAAEBAAESABIMCAkiCAgBEgQBAQEBEgIoDRIOCAkiCggDEgYBAQEBAAASAigtEg4ICSIKCAMSBgABAAEBARICKAMSDggJIgoIAxIGAQEAAAEBEgIoAxICCAMSAigK_0', hints:['draw all the pieces on a piece of paper', 'if you count up all the yellow squares and compare it to all the squares on the board there should only be 2 extra', 'the extra squares (not included in the outline) are in the top', 'the only pieces not included in the outline are the top-left and top-right pieces']}, // 5x6 just-tetris-pieces
 
 
-    {n:'tetris-fun-quary-lr', theme:'brown', c: 'CAkSAigIEgIIBBICKDcSDggJIgoIAhIGAQABAAEBEgIoBRIOCAkiCggCEgYBAQEAAQASABICCAMSAigI_0'},
+    {n:'tetris-fun-quary-lr', theme:'brown', c: 'CAkSAigIEgIIBBICKDcSDggJIgoIAhIGAQABAAEBEgIoBRIOCAkiCggCEgYBAQEAAQASABICCAMSAigI_0', hints:['mentally swap the two yellow-square pieces', 'but keep them in the same group']},
 
-    {n:'tetris-fill', theme:'brown', c:'CAcSAigGEgIIBBICKAUSCQgJIgUIARIBARICKAkSEQgJIg0IAxIJAQEBAQABAQEBEgIoExICCAMSAigG_0'}, // 3x3
-    {n:'tetris-fill2', theme:'brown', c:'CAcSAigGEgIIBBICKB8SDAgJIggIAhIEAAEBABIAEgwICSIICAISBAEAAAESABICCAMSAigG_0'}, // 3x3
+    {n:'tetris-fill', theme:'brown', c:'CAcSAigGEgIIBBICKAUSCQgJIgUIARIBARICKAkSEQgJIg0IAxIJAQEBAQABAQEBEgIoExICCAMSAigG_0', hints:['the single dot can reside inside the yellow ring', 'just make an outline']}, // 3x3
+    {n:'tetris-fill2', theme:'brown', c:'CAcSAigGEgIIBBICKB8SDAgJIggIAhIEAAEBABIAEgwICSIICAISBAEAAAESABICCAMSAigG_0', hints:['the diagonals can lay on top of each other', '...forming a square', 'so outline the square']}, // 3x3
     {n:'tetris-fill3', theme:'brown', c:'CAkSAigIEgIIBBIAEgkICSIFCAESAQESAigDEgwICSIICAQSBAEBAQESAigfEg4ICSIKCAISBgABAQABABICKBkSAggDEgIoCA==_0'},
     {n:'tetris-fill4', theme:'brown', c:'CAkSAigIEgIIBBIAEhEICSINCAMSCQEBAQAAAQAAARICKBcSCwgJIgcIARIDAQEBEgIoDRIQCAkiDAgEEggBAAABAQAAARICKBcSAggDEgIoCA==_0'},
 

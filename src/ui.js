@@ -607,10 +607,25 @@ GridUi.prototype.initializeSnakeInternal = function(
         this.finishSnake();
       }
     });
-  } else if (pxGamepad.getGamepad()) {
-    var lastTs = window.performance.now();
+  } else {
+    this.snakeHandler.listen(document, 'mousemove', function(ce) {
+      var e = ce.getBrowserEvent();
+      if (this.snake) {
+        if (!this.snake.targetingMouse && e.movementX != undefined) {
+          this.snake.setMouseDiff(e.movementX, e.movementY);
+        } else {
+          this.snake.setMouse(e.pageX, e.pageY);
+        }
+      }
+    });
+  }
 
-    var fn = function(ts) {
+  // Independently allow the gamepad
+  var lastTs = window.performance.now();
+
+  var fn = function(ts) {
+
+    if (pxGamepad.getGamepad()) {
       var dt = ts - lastTs;
       lastTs = ts;
 
@@ -651,33 +666,15 @@ GridUi.prototype.initializeSnakeInternal = function(
         }
         window.requestAnimationFrame(fn);
       }
+
+    } else {
+      window.requestAnimationFrame(fn); // keep waiting for the gamepad
     }
-    fn = fn.bind(this);
-    window.requestAnimationFrame(fn);
-
-    this.snakeHandler.listen(document, 'mouseup', function(ce) {
-      var e = ce.getBrowserEvent();
-      if (this.snake) {
-        if (!this.snake.targetingMouse && e.movementX != undefined) {
-          this.snake.setMouseDiff(e.movementX, e.movementY);
-        } else {
-          this.snake.setMouse(e.pageX, e.pageY);
-        }
-      }
-    });
-
-  } else {
-    this.snakeHandler.listen(document, 'mousemove', function(ce) {
-      var e = ce.getBrowserEvent();
-      if (this.snake) {
-        if (!this.snake.targetingMouse && e.movementX != undefined) {
-          this.snake.setMouseDiff(e.movementX, e.movementY);
-        } else {
-          this.snake.setMouse(e.pageX, e.pageY);
-        }
-      }
-    });
   }
+  fn = fn.bind(this);
+  window.requestAnimationFrame(fn);
+
+
   // TODO: Don't apply to 'all' if possible. (What to do instead?)
   // Note that when playing, 'all' is not available, only 'content' is.
   this.snakeHandler.listen(document.getElementById('all') ||

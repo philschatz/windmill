@@ -34,6 +34,9 @@ var UI = windmill.constants.UI;
 var coordListKey = windmill.keys.coordListKey;
 
 
+var pxGamepad = new window.PxGamepad();
+pxGamepad.start();
+
 /** @constructor */
 windmill.GridRenderer = function(grid, opt_gridBase) {
   this.grid = grid;
@@ -549,6 +552,48 @@ GridUi.prototype.initializeSnakeInternal = function(
         this.finishSnake();
       }
     });
+  } else if (pxGamepad.getGamepad()) {
+    var fn = function(ts) {
+      pxGamepad.update();
+      var moveX = pxGamepad.dpad.x || pxGamepad.leftStick.x;
+      var moveY = pxGamepad.dpad.y || pxGamepad.leftStick.y;
+      var xButtonPressed = pxGamepad.buttons.a;
+
+      // Use whatever is the "major" direction of the dpad.
+      if (Math.abs(moveX) > Math.abs(moveY)) {
+        moveY = 0;
+      } else {
+        moveX = 0;
+      }
+
+      if (this.snake) {
+        if (!this.snake.targetingMouse && (Math.abs(moveX) > .25 || Math.abs(moveY) > .25)) {
+          this.snake.setMouseDiff(moveX * 3, moveY * 3);
+        } else {
+          // this.snake.setMouse(e.pageX, e.pageY);
+        }
+
+        if (xButtonPressed) {
+          this.finishSnake();
+        }
+      }
+
+
+      window.requestAnimationFrame(fn.bind(this));
+    }
+    window.requestAnimationFrame(fn.bind(this));
+
+    this.snakeHandler.listen(document, 'mouseup', function(ce) {
+      var e = ce.getBrowserEvent();
+      if (this.snake) {
+        if (!this.snake.targetingMouse && e.movementX != undefined) {
+          this.snake.setMouseDiff(e.movementX, e.movementY);
+        } else {
+          this.snake.setMouse(e.pageX, e.pageY);
+        }
+      }
+    });
+
   } else {
     this.snakeHandler.listen(document, 'mousemove', function(ce) {
       var e = ce.getBrowserEvent();
@@ -744,7 +789,7 @@ GridUi.prototype.disappearSnake = function(fadeMs, errors, errorDelayMs) {
     setTimeout(function() {
       snake.fade(fadeMs);
     }, errorDelayMs);
-  } else {
+  } else if (snake) {
     snake.fade(fadeMs);
   };
   if (this.backgroundEditEntity) {

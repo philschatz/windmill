@@ -45,26 +45,31 @@
         this.reset();
 
         this.listeners = {
-            'gamepadconnected': jQuery.proxy(function(e) {
+            'gamepadconnected': (function(e) {
                 var gamepad = e.originalEvent.gamepad;
                 if (gamepad.mapping === 'standard') {
                     this.connectedGamepad = gamepad;
                 }
-            }),
-            'gamepaddisconnected': jQuery.proxy(function(e) {
+            }).bind(this),
+            'gamepaddisconnected': (function(e) {
                 var gamepad = e.originalEvent.gamepad;
                 if (this.connectedGamepad === gamepad) {
                     this.connectedGamepad = null;
                 }
-            })
+            }).bind(this)
         };
 
-        jQuery(window).on(this.listeners);
+        // jQuery(window).on(this.listeners);
+        window.addEventListener('gamepadconnected', this.listeners['gamepadconnected']);
+        window.addEventListener('gamepaddisconnected', this.listeners['gamepaddisconnected']);
     };
 
     // stop listening to gamepad connection events
     PxGamepad.prototype.stop = function() {
-        jQuery(window).off(this.listeners);
+        // jQuery(window).off(this.listeners);
+        window.removeEventListener('gamepadconnected', this.listeners['gamepadconnected']);
+        window.removeEventListener('gamepaddisconnected', this.listeners['gamepaddisconnected']);
+
         this.connectedGamepad = null;
     };
 
@@ -161,8 +166,13 @@
             isDown = this.buttons[name] = buttonPressed(gp, i);
 
             if (wasDown && !isDown) {
-                jQuery.each(this.callbacks[name] || [], function(callback) {
-                    if (callback) { callback(); }
+                // jQuery.each(this.callbacks[name] || [], function(callback) {
+                //     if (callback) { callback(); }
+                // });
+                (this.callbacks[name] || []).forEach(function(callback) {
+                  if (callback) {
+                    callback();
+                  }
                 });
             }
         }

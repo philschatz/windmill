@@ -4,6 +4,7 @@ static/*
 !static/logo.ico
 !static/protobuf.min.js
 !static/bytebuffer.min.js
+!static/pxgamepad.js
 # dist/*
 !dist/README.md
 node_modules/

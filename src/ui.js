@@ -298,6 +298,60 @@ GridUi.prototype.renderContents = function(contents) {
       this.lockStatus = 'never';
     }
   });
+
+  // when clicking to finish a snake we need to make sure the button was lifted before registering a new click
+  var waiting = false;
+
+  var fn = function(ts) {
+    if (this.isDisposed) {
+      return; // stop polling for keypresses
+    }
+    pxGamepad.update();
+    var xButtonPressed = pxGamepad.buttons.a;
+
+    // !snake  button !waiting  -> startSnake() !waiting
+    //  snake  button !waiting  -> waiting
+    //  snake !button           -> nothing
+    // !snake !button  waiting  -> !waiting
+
+
+    // if (this.snake && xButtonPressed && !waiting) {
+    //   waiting = true;
+    // } else if (!this.snake && !xButtonPressed && waiting) {
+    //   waiting = false;
+    // }
+
+    if (!this.snake && xButtonPressed && !waiting) {
+      // if the x was clicked then find the 1 start coord and initialize the snake
+
+      // Find all the starts
+      var foundStarts = 0;
+      var coords = null;
+      for (var i = 0; i <= this.grid.width; i++) {
+        for (var j = 0; j <= this.grid.height; j++) {
+          var entity = this.grid.pointEntity(i, j);
+          if (entity && entity.type == Type.START) {
+            foundStarts++;
+            coords = {i:i, j:j};
+          }
+        }
+      }
+
+      if (foundStarts === 1 && coords) {
+        // waiting = true;
+        this.initializeSnakeInternal(coords, null);
+        // return; // skip the new requestAnimationFrame
+      } else if (foundStarts === 0) {
+        return; // this is listening to the old snake grid
+      } else {
+        // alert('There are ' + foundStarts + ' possible places to start. Use the mouse to choose one')
+      }
+
+    }
+    window.requestAnimationFrame(fn.bind(this));
+  }
+  window.requestAnimationFrame(fn.bind(this));
+
 }
 GridUi.prototype.dispose = function() {
   if (this.eventHandler) {
@@ -309,6 +363,7 @@ GridUi.prototype.dispose = function() {
   // dispose technically means 'I never want to see this
   // object again', but let's be generous/safe.
   this.eventHandler = this.snakeHandler = null;
+  this.isDisposed = true;
 }
 GridUi.prototype.eraseAll = function() {
   this.grid.initialize(this.grid.width, this.grid.height);
@@ -553,35 +608,52 @@ GridUi.prototype.initializeSnakeInternal = function(
       }
     });
   } else if (pxGamepad.getGamepad()) {
+    var lastTs = window.performance.now();
+
     var fn = function(ts) {
+      var dt = ts - lastTs;
+      lastTs = ts;
+
       pxGamepad.update();
       var moveX = pxGamepad.dpad.x || pxGamepad.leftStick.x;
       var moveY = pxGamepad.dpad.y || pxGamepad.leftStick.y;
       var xButtonPressed = pxGamepad.buttons.a;
 
-      // Use whatever is the "major" direction of the dpad.
-      if (Math.abs(moveX) > Math.abs(moveY)) {
-        moveY = 0;
-      } else {
-        moveX = 0;
-      }
-
       if (this.snake) {
-        if (!this.snake.targetingMouse && (Math.abs(moveX) > .25 || Math.abs(moveY) > .25)) {
-          this.snake.setMouseDiff(moveX * 3, moveY * 3);
+
+        // Use whatever is the "major" direction of the dpad.
+        if (Math.abs(moveX) > Math.abs(moveY)) {
+          moveY = 0;
         } else {
-          // this.snake.setMouse(e.pageX, e.pageY);
+          moveX = 0;
         }
 
-        if (xButtonPressed) {
-          this.finishSnake();
+        moveX = (moveX * dt)/7.5;
+        moveY = (moveY * dt)/7.5;
+
+        // if (Math.abs(moveX) > .05 || Math.abs(moveY) > .05) {
+        //   console.log(moveX, moveY);
+        // }
+        //
+        // moveX = Math.max(Math.min(moveX, 1), -1);
+        // moveY = Math.max(Math.min(moveY, 1), -1);
+
+        if (this.snake) {
+          if (!this.snake.targetingMouse && (Math.abs(moveX) > .15 || Math.abs(moveY) > .15)) {
+            this.snake.setMouseDiff(moveX, moveY);
+          } else {
+            // this.snake.setMouse(e.pageX, e.pageY);
+          }
+
+          if (xButtonPressed) {
+            this.finishSnake();
+          }
         }
+        window.requestAnimationFrame(fn);
       }
-
-
-      window.requestAnimationFrame(fn.bind(this));
     }
-    window.requestAnimationFrame(fn.bind(this));
+    fn = fn.bind(this);
+    window.requestAnimationFrame(fn);
 
     this.snakeHandler.listen(document, 'mouseup', function(ce) {
       var e = ce.getBrowserEvent();

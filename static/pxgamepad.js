@@ -46,13 +46,13 @@
 
         this.listeners = {
             'gamepadconnected': (function(e) {
-                var gamepad = e.originalEvent.gamepad;
+                var gamepad = e.gamepad || e.originalEvent.gamepad;
                 if (gamepad.mapping === 'standard') {
                     this.connectedGamepad = gamepad;
                 }
             }).bind(this),
             'gamepaddisconnected': (function(e) {
-                var gamepad = e.originalEvent.gamepad;
+                var gamepad = e.gamepad || e.originalEvent.gamepad;
                 if (this.connectedGamepad === gamepad) {
                     this.connectedGamepad = null;
                 }

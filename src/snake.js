@@ -66,7 +66,7 @@ Snake.prototype.setTargetingMouse = function(targetingMouse, snapToGrid) {
   this.snapToGrid = snapToGrid;
 }
 Snake.prototype.atEnd = function() {
-  return this.targetIsEnd && this.progress === this.targetMaxProgress;
+  return this.targetIsEnd && this.progress >= this.targetMaxProgress / 4; // be lenient about hitting the finish line
 }
 Snake.prototype.markSuccessful = function() {
   if (this.snakeEl) {

@@ -202,8 +202,12 @@ GridUi.prototype.renderContents = function(contents) {
   var zoomWidth = winWidth / gridWidth;
   var zoomHeight = winHeight / gridHeight;
   var zoom = Math.min(zoomWidth, zoomHeight);
-  document.getElementById('gridAll').style.zoom = zoom;
-  // document.getElementById('gridAll').style.transform = 'scale(' + zoom + ')';
+
+  // Enable zooming only when running chrome in the browser
+  if (! ('ontouchstart' in document.documentElement)) {
+    document.getElementById('gridAll').style.zoom = zoom;
+    // document.getElementById('gridAll').style.transform = 'scale(' + zoom + ')';
+  }
 
   this.renderer.renderContents(contents);
   // Now, set up the right event handlers.

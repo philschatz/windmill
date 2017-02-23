@@ -391,7 +391,13 @@ window.addEventListener( "load", function() {
   }
 
   var puzzleName;
-  if (window.localStorage['windmill-at']) {
+  if (window.localStorage['windmill-at'] && window.localStorage['windmill-at'] !== window.location.hash.replace('#', '')) {
+    if (confirm('It seems you played this before; would you like to resume where you left off?')) {
+      puzzleName = window.localStorage['windmill-at']
+    } else {
+      puzzleName = null
+    }
+  } else if (window.localStorage['windmill-at']) {
     puzzleName = window.localStorage['windmill-at']
   } else {
     puzzleName = window.location.hash.replace('#', '')

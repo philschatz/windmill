@@ -392,7 +392,7 @@ window.addEventListener( "load", function() {
 
   var puzzleName;
   if (window.localStorage['windmill-at'] && window.localStorage['windmill-at'] !== window.location.hash.replace('#', '')) {
-    if (confirm('It seems you played this before; would you like to resume where you left off?')) {
+    if (confirm('It seems you played this before; would you like to resume where you left off? Otherwise you will start back at the beginning.')) {
       puzzleName = window.localStorage['windmill-at']
     } else {
       puzzleName = null

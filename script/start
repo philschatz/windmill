@@ -1,0 +1,8 @@
+#!/bin/bash
+
+port=$([[ "${PORT}" ]] && echo "${PORT}" || echo 8080)
+my_dir=$(dirname $0)
+
+echo PORT=${port}
+
+$(cd "${my_dir}/.." && npm bin)/http-server -p "${port}" ${my_dir}/.. 

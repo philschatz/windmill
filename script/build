@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+root_dir=$(cd $(dirname $0)/.. && pwd)
+
+${root_dir}/proto.sh
+${root_dir}/soy.sh
+${root_dir}/compile.sh local
